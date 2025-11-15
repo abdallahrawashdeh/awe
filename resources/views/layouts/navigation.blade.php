@@ -13,7 +13,7 @@
 <div class="flex items-center justify-center h-16 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
     <a href="{{ route('dashboard') }}"
        class="flex items-center border-b-4 transition-all duration-300
-        @if(request()->routeIs('dashboard')) border-blue-500 @else border-transparent @endif">
+        ">
 
         <img src="{{ asset('images/newlogo.png') }}"
             alt="Logo"
