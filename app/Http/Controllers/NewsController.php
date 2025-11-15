@@ -13,10 +13,12 @@ class NewsController extends Controller
 {
 public function index()
 {
-    $news = News::with('user')->latest()->get();
+    $news = \App\Models\News::with('user')
+        ->orderBy('created_at', 'desc')
+        ->paginate(10); // This returns a LengthAwarePaginator instance
+
     return view('news.index', compact('news'));
 }
-
     public function public()
 {
     $news = News::latest()->get();

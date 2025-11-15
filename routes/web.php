@@ -13,6 +13,8 @@ use App\Models\Client;
 
 
 
+
+
 // ADMIN HOME
 Route::get('/admin', function () {
     return view('welcome');
@@ -116,10 +118,15 @@ Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.
 
 use App\Http\Controllers\TeamController;
 
+
+
 Route::get('/team', [TeamController::class, 'index']);
 
 
 
+use App\Http\Controllers\ChatbotController;
+
+Route::get('/chatbot-response', [ChatbotController::class, 'getResponse'])->name('chatbot.response');
 
 // Auth routes (login, register, etc.)
 require __DIR__.'/auth.php';

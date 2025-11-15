@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Career;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // ✅ This is required
 use Illuminate\Support\Facades\Auth;
 
 class CareerController extends Controller
 {
+// In CareersController.php
 public function index()
 {
-    $careers = Career::with('user')->latest()->get();
+    $careers = \App\Models\Career::with('user')
+        ->orderBy('created_at', 'desc')
+        ->paginate(10); // This enables pagination
+
     return view('careerss.index', compact('careers'));
 }
 
@@ -80,4 +84,7 @@ public function public()
 
         return redirect()->route('careerss.index')->with('success', 'Career deleted.');
     }
+
+
+
 }
