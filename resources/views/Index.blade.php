@@ -10,7 +10,7 @@
 
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/newlogo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/awdlogo.png') }}" type="image/png">
 
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
 @vite(['resources/css/app.css', 'resources/js/chatbot.js'])
@@ -36,248 +36,596 @@
  <!-- end of Slider -->
 
 
-<div class="w-full mt-0 bg-white rounded-xl shadow-2xl p-5 md:p-5 lg:p-20 animate-fadeInUp">
-  <h3 class="text-3xl font-bold text-gray-800 mb-4 border-b-2 pb-2 border-[#e9bc64]">
-     Advanced Works Engineering Overview:
-  </h3>
-  <p id="description" class="text-gray-600 leading-relaxed text-lg overflow-hidden transition-[max-height] duration-500 max-h-20">
-   Welcome to Advanced Works
-Engineering Company , where we
-are dedicated to providing
-comprehensive engineering services
-to our clients, including property
-developers, project owners, and
-contractors. Our company was
-established with the mission of
-advancing engineering practices and
-enhancing quality standards in the
-engineering sector. <br>
+<div class="w-full mt-0 bg-white  shadow-2xl p-5 md:p-5 lg:p-20 animate-fadeInUp relative overflow-hidden transition-all duration-500 hover:shadow-[0_20px_70px_-10px_rgba(233,188,100,0.3)] border border-transparent hover:border-[#e9bc64]/20">
 
+  <!-- Modern Gradient Accent Line (top) -->
+  <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#e9bc64] via-amber-300 to-[#e9bc64] bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite]"></div>
 
-We leverage our extensive
-experience and knowledge to serve
-our clients, with a carefully selected
-team of highly skilled engineers
-aligned with our vision to position
-our company among the top-tier
-firms in the fieled. We strive for
-excellence and innovation in every
-project we undertake, ensuring our
-clients' success and achieving their
-goals efficiently and professionally. <br>
+  <!-- Subtle background pattern (modern touch) -->
+  <div class="absolute -right-20 -top-20 w-72 h-72 bg-[#e9bc64]/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
+  <!-- Header with icon & modern badge -->
+  <div class="relative z-10 flex flex-wrap items-center gap-3 mb-5">
+    <div class="flex items-center gap-3">
+      <span class="text-3xl md:text-4xl text-[#e9bc64]">
+        <i class="fas fa-cogs"></i>
+      </span>
+      <h3 class="text-3xl md:text-4xl font-extrabold text-gray-800 tracking-tight">
+        Advanced Works <span class="text-[#e9bc64]">Engineering</span>
+      </h3>
+    </div>
+    <span class="ml-auto text-xs font-semibold uppercase tracking-wider bg-[#e9bc64]/10 text-[#b8963c] px-4 py-1.5 rounded-full border border-[#e9bc64]/20 shadow-sm backdrop-blur-sm">
+      <i class="fas fa-star mr-1.5 text-[#e9bc64]"></i> Since 2020
+    </span>
+  </div>
 
-In summary, we are your ideal
-partner for all engineering service
-needs, and we are committed to
-delivering the best
+  <!-- Divider with gradient + animation -->
+  <div class="relative z-10 w-full h-0.5 mb-6 bg-gradient-to-r from-[#e9bc64]/60 via-[#e9bc64] to-[#e9bc64]/20 rounded-full overflow-hidden">
+    <div class="absolute inset-0 w-1/3 bg-white/30 blur-sm animate-pulse"></div>
+  </div>
+
+  <!-- Description with smooth expand/collapse and modern typography -->
+  <p id="description" class="relative z-10 text-gray-700 leading-relaxed text-base md:text-lg overflow-hidden transition-[max-height,opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] max-h-20 [&.expanded]:max-h-[1200px] [&.expanded]:opacity-100 [&.expanded]:translate-y-0 opacity-100 translate-y-0">
+    <span class="font-medium text-[#e9bc64]">Welcome to Advanced Works Engineering Company</span>, where we are dedicated to providing comprehensive engineering services to our clients, including property developers, project owners, and contractors. Our company was established with the mission of advancing engineering practices and enhancing quality standards in the engineering sector.
+    <br><br>
+    We leverage our extensive experience and knowledge to serve our clients, with a carefully selected team of highly skilled engineers aligned with our vision to position our company among the top-tier firms in the field. We strive for excellence and innovation in every project we undertake, ensuring our clients' success and achieving their goals efficiently and professionally.
+    <br><br>
+    In summary, we are your ideal partner for all engineering service needs, and we are committed to delivering the best.
   </p>
 
+  <!-- Modern Read More / Read Less button with glow & micro-interactions -->
+  <button id="toggleBtn" onclick="toggleText()" class="relative z-10 mt-8 group flex items-center gap-2 px-7 py-3.5 bg-[#e9bc64] text-white font-semibold rounded-xl shadow-lg shadow-[#e9bc64]/30 hover:shadow-[#e9bc64]/50 transition-all duration-300 hover:scale-[1.02] active:scale-[0.97] border border-[#e9bc64]/40 overflow-hidden">
+    <!-- button background shimmer effect -->
+    <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
 
-  <button id="toggleBtn" onclick="toggleText()" class="mt-10 before:ease relative h-12 w-40 overflow-hidden border border-[#e9bc64] bg-[#e9bc64] text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:shadow-[#e9bc64] hover:before:-translate-x-40">
-    <span id="btnText" class="relative z-10">Read More</span>
+    <span id="btnText" class="relative flex items-center gap-2">
+      <i class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180" id="btnIcon"></i>
+      Read More
+    </span>
+    <span class="relative w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px] transition-all duration-300 group-hover:bg-white/30">
+      <i class="fas fa-arrow-right"></i>
+    </span>
   </button>
+
+  <!-- Decorative corner accent (modern) -->
+  <div class="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-[#e9bc64]/10 rounded-br-2xl pointer-events-none"></div>
+  <div class="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-[#e9bc64]/10 rounded-tl-2xl pointer-events-none"></div>
 </div>
 
 <script>
   function toggleText() {
     const para = document.getElementById("description");
     const btnText = document.getElementById("btnText");
+    const btnIcon = document.getElementById("btnIcon");
 
-    if (para.classList.contains("max-h-20")) {
-      para.classList.remove("max-h-20");
-      para.classList.add("max-h-[1000px]");
-      btnText.textContent = "Read Less";
+    // Toggle expanded class on paragraph (clean, no inline style manipulation)
+    const isExpanded = para.classList.contains("expanded");
+
+    if (isExpanded) {
+      para.classList.remove("expanded");
+      btnText.innerHTML = `<i class="fas fa-chevron-down text-sm transition-transform duration-300"></i> Read More`;
+      // re-add icon reference
+      const newIcon = btnText.querySelector("i");
+      if (newIcon) newIcon.id = "btnIcon";
     } else {
-      para.classList.remove("max-h-[1000px]");
-      para.classList.add("max-h-20");
-      btnText.textContent = "Read More";
+      para.classList.add("expanded");
+      btnText.innerHTML = `<i class="fas fa-chevron-up text-sm transition-transform duration-300"></i> Read Less`;
+      const newIcon = btnText.querySelector("i");
+      if (newIcon) newIcon.id = "btnIcon";
     }
   }
-</script>
-   <style>
-        @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    .animate-fadeInUp {
-      animation: fadeInUp 0.8s ease-out forwards;
+  // Ensure initial icon is set correctly (in case of re-render)
+  document.addEventListener("DOMContentLoaded", function() {
+    const btnText = document.getElementById("btnText");
+    if (btnText && !btnText.querySelector("i")) {
+      btnText.innerHTML = `<i class="fas fa-chevron-down text-sm transition-transform duration-300" id="btnIcon"></i> Read More`;
     }
-  </style>
+  });
+</script>
+
+<style>
+  /* keep your original fadeInUp + add shimmer used in accent */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+  }
+
+  /* smooth expand/collapse with easing */
+  #description {
+    transition: max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.4s ease,
+                transform 0.4s ease;
+    transform-origin: top center;
+  }
+
+  #description.expanded {
+    max-height: 1200px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* button hover extra glow */
+  #toggleBtn {
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #toggleBtn:hover {
+    box-shadow: 0 12px 30px -8px rgba(233, 188, 100, 0.6);
+  }
+
+  /* better text selection */
+  ::selection {
+    background: #e9bc64;
+    color: #1e293b;
+  }
+</style>
 
   <!------------------------------------------------------------------------------------>
 
-<div class="w-full bg-white py-10 px-4 sm:px-10">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 shadow-lg  border border-gray-200 p-6 md:p-10 hover:shadow-2xl transition-all duration-300">
-        <!-- Image Section -->
-        <div class="flex-shrink-0">
-            <img src="{{ asset('images/adelimg.png') }}" alt="Eng. Adel"
-                class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-white shadow-md" />
+
+
+{{-- <div class="w-full bg-gradient-to-br from-gray-50 to-white py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-8xl mx-auto">
+        <!-- Card Container -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
+            <div class="flex flex-col lg:flex-row items-center lg:items-stretch">
+                <!-- Image Section - Much Larger -->
+                <div class="relative lg:w-2/5 p-6 lg:p-0 bg-gradient-to-br from-[#f8f5ec] to-[#fdfbf5] flex items-center justify-center">
+                    <div class="relative w-full h-full flex items-center justify-center">
+                        <!-- Decorative background elements -->
+                        <div class="absolute top-1/4 -left-8 w-48 h-48 bg-[#e8bb5b]/10 rounded-full blur-xl"></div>
+                        <div class="absolute bottom-1/4 -right-8 w-40 h-40 bg-[#e8bb5b]/5 rounded-full blur-xl"></div>
+
+                        <!-- Main Image - Much Larger -->
+                        <div class="relative z-10 p-4 lg:p-8">
+                            <img src="{{ asset('images/adelimg.png') }}" alt="Eng. Adel"
+                                class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-8 border-white shadow-2xl mx-auto" />
+
+                            <!-- Floating Badge on Image -->
+                            <div class="absolute -bottom-4 right-8 lg:right-16 bg-white rounded-2xl shadow-lg px-6 py-3 border border-gray-200">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-10 h-10 bg-[#e8bb5b] rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Leading</p>
+                                        <p class="font-bold text-gray-900">AW Company</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Section - Slightly Narrower to accommodate larger image -->
+                <div class="lg:w-3/5 p-8 lg:p-12 flex flex-col justify-center">
+                    <!-- Title & Position -->
+                    <div class="mb-6">
+                        <div class="inline-flex items-center gap-3 mb-4 bg-[#e8bb5b]/10 px-4 py-2 rounded-full">
+                            <span class="text-sm font-semibold text-[#b89430] uppercase tracking-wider">Visionary Leader</span>
+                        </div>
+                        <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+                            Eng. <span class="text-[#e8bb5b]">Adel</span>
+                        </h1>
+                        <div class="flex items-center gap-3 mt-4">
+                            <div class="h-2 w-16 bg-gradient-to-r from-[#e8bb5b] to-[#d4a84c] rounded-full"></div>
+                            <p class="text-xl lg:text-2xl text-gray-600 font-medium">Founder & General Manager</p>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-8">
+                        <p class="text-gray-700 leading-relaxed text-lg lg:text-xl">
+                            A distinguished leader with an unwavering commitment to innovation and excellence. With over 15 years of pioneering experience, Eng. Adel has transformed industry standards through visionary solutions that empower organizations and inspire exceptional team performance. His strategic acumen continues to propel AW Company to new heights of success and industry leadership.
+                        </p>
+                    </div>
+
+                    <!-- Stats/Highlights -->
+                    <div class="mb-10">
+                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-200">
+                                <p class="text-3xl font-bold text-[#e8bb5b] mb-1">15+</p>
+                                <p class="text-sm text-gray-600 font-medium">Years of Excellence</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-200">
+                                <p class="text-3xl font-bold text-[#e8bb5b] mb-1">200+</p>
+                                <p class="text-sm text-gray-600 font-medium">Successful Projects</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-200 col-span-2 lg:col-span-1">
+                                <p class="text-3xl font-bold text-[#e8bb5b] mb-1">100%</p>
+                                <p class="text-sm text-gray-600 font-medium">Client Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expertise Tags -->
+                    <div class="mb-10">
+                        <p class="text-gray-700 font-semibold mb-3">Core Expertise:</p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">Strategic Leadership</span>
+                            <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">Business Innovation</span>
+                            <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">Team Development</span>
+                            <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">Digital Transformation</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="pt-6 border-t border-gray-200">
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <svg class="w-5 h-5 text-[#e8bb5b]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                </svg>
+                                <span>adel@awcompany.com</span>
+                            </div>
+                            <a href="#" class="group relative inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#e8bb5b] to-[#d4a84c] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 overflow-hidden">
+                                <span class="relative z-10">Schedule a Meeting</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#d4a84c] to-[#e8bb5b] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <svg class="w-5 h-5 ml-2 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Text Section -->
-        <div class="text-center md:text-left flex-1">
-            <h2 class="text-3xl font-bold text-gray-800">Eng. Adel</h2>
-            <p class="text-lg text-gray-600 mt-2">Founder &amp; General Manager</p>
-            <span href="#" class="text-[#e8bb5b] mt-2 inline-block hover:underline transition">AW Company</span>
+        <!-- Inspirational Quote -->
+        <div class="mt-12 text-center max-w-3xl mx-auto">
+            <div class="relative">
+                <svg class="w-12 h-12 text-[#e8bb5b]/20 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+                <p class="text-2xl text-gray-700 italic font-light leading-relaxed">
+                    "True leadership is not about being in charge. It's about taking care of those in your charge and innovating for their success."
+                </p>
+                <p class="mt-4 text-gray-500 font-medium">— Eng. Adel</p>
+            </div>
+        </div>
+    </div>
+</div> --}}
 
-            <!-- Optional Description -->
-            <p class="mt-4 text-sm text-gray-500 leading-relaxed max-w-xl">
-                Passionate about innovation and leadership, Eng. Adel has dedicated his career to building solutions that empower businesses and teams. His vision drives AW Company forward.
-            </p>
+<div class="w-full bg-gradient-to-br from-gray-50 to-white py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-8xl mx-auto">
+        <!-- Card Container -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
+            <div class="flex flex-col lg:flex-row items-center lg:items-stretch">
+                <!-- Image Section - Much Larger -->
+                <div class="relative lg:w-2/5 p-6 lg:p-0 bg-gradient-to-br from-[#f8f5ec] to-[#fdfbf5] flex items-center justify-center">
+                    <div class="relative w-full h-full flex items-center justify-center">
+                        <!-- Decorative background elements -->
+                        <div class="absolute top-1/4 -left-8 w-48 h-48 bg-[#e8bb5b]/10 rounded-full blur-xl"></div>
+                        <div class="absolute bottom-1/4 -right-8 w-40 h-40 bg-[#e8bb5b]/5 rounded-full blur-xl"></div>
+
+                        <!-- Main Image - Much Larger -->
+                        <div class="relative z-10 p-4 lg:p-8">
+                            @if($ceoInfo && $ceoInfo->ceo_image)
+                                <img src="{{ asset('storage/' . $ceoInfo->ceo_image) }}" alt="{{ $ceoInfo->ceo_name ?? 'CEO' }}"
+                                    class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-8 border-white shadow-2xl mx-auto" />
+                            @else
+                                <img src="{{ asset('images/adelimg.png') }}" alt="Eng. Adel"
+                                    class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-8 border-white shadow-2xl mx-auto" />
+                            @endif
+
+                            <!-- Floating Badge on Image -->
+                            <div class="absolute -bottom-4 right-8 lg:right-16 bg-white rounded-2xl shadow-lg px-6 py-3 border border-gray-200">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-10 h-10 bg-[#e8bb5b] rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Leading</p>
+                                        <p class="font-bold text-gray-900">{{ $ceoInfo->company_name ?? 'AW Company' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Section - Slightly Narrower to accommodate larger image -->
+                <div class="lg:w-3/5 p-8 lg:p-12 flex flex-col justify-center">
+                    <!-- Title & Position -->
+                    <div class="mb-6">
+                        <div class="inline-flex items-center gap-3 mb-4 bg-[#e8bb5b]/10 px-4 py-2 rounded-full">
+                            <span class="text-sm font-semibold text-[#b89430] uppercase tracking-wider">Visionary Leader</span>
+                        </div>
+                        <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+                            {{ $ceoInfo->ceo_name ?? 'Eng. Adel' }}
+                        </h1>
+                        <div class="flex items-center gap-3 mt-4">
+                            <div class="h-2 w-16 bg-gradient-to-r from-[#e8bb5b] to-[#d4a84c] rounded-full"></div>
+                            <p class="text-xl lg:text-2xl text-gray-600 font-medium">{{ $ceoInfo->ceo_title ?? 'Founder & General Manager' }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-8">
+                        <p class="text-gray-700 leading-relaxed text-lg lg:text-xl">
+                            {{ $ceoInfo->ceo_content ?? 'A distinguished leader with an unwavering commitment to innovation and excellence. With over 15 years of pioneering experience, Eng. Adel has transformed industry standards through visionary solutions that empower organizations and inspire exceptional team performance. His strategic acumen continues to propel AW Company to new heights of success and industry leadership.' }}
+                        </p>
+                    </div>
+
+                    <!-- Stats/Highlights -->
+                    <div class="mb-10">
+                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-200">
+                                <p class="text-3xl font-bold text-[#e8bb5b] mb-1">{{ $ceoInfo->ceo_years ?? '15' }}+</p>
+                                <p class="text-sm text-gray-600 font-medium">Years of Excellence</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-200">
+                                <p class="text-3xl font-bold text-[#e8bb5b] mb-1">{{ $ceoInfo->ceo_projects ?? '200' }}+</p>
+                                <p class="text-sm text-gray-600 font-medium">Successful Projects</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-200 col-span-2 lg:col-span-1">
+                                <p class="text-3xl font-bold text-[#e8bb5b] mb-1">{{ $ceoInfo->ceo_client_satisfaction ?? '100' }}%</p>
+                                <p class="text-sm text-gray-600 font-medium">Client Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expertise Tags -->
+                    <div class="mb-10">
+                        <p class="text-gray-700 font-semibold mb-3">Core Expertise:</p>
+                        <div class="flex flex-wrap gap-3">
+                            @php
+                                $expertise = [];
+                                if($ceoInfo && $ceoInfo->ceo_core_expertise) {
+                                    $expertise = is_array($ceoInfo->ceo_core_expertise)
+                                        ? $ceoInfo->ceo_core_expertise
+                                        : json_decode($ceoInfo->ceo_core_expertise, true) ?? explode(',', $ceoInfo->ceo_core_expertise);
+                                }
+                            @endphp
+
+                            @if(!empty($expertise))
+                                @foreach($expertise as $skill)
+                                    <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">{{ trim($skill) }}</span>
+                                @endforeach
+                            @else
+                                <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">Strategic Leadership</span>
+                                <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">Business Innovation</span>
+                                <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">Team Development</span>
+                                <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">Digital Transformation</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="pt-6 border-t border-gray-200">
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <svg class="w-5 h-5 text-[#e8bb5b]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                </svg>
+                                <span>{{ $ceoInfo->ceo_email ?? 'adel@awcompany.com' }}</span>
+                            </div>
+                            <a href="#" class="group relative inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#e8bb5b] to-[#d4a84c] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 overflow-hidden">
+                                <span class="relative z-10">Schedule a Meeting</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#d4a84c] to-[#e8bb5b] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <svg class="w-5 h-5 ml-2 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inspirational Quote -->
+        <div class="mt-12 text-center max-w-3xl mx-auto">
+            <div class="relative">
+                <svg class="w-12 h-12 text-[#e8bb5b]/20 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+                <p class="text-2xl text-gray-700 italic font-light leading-relaxed">
+                    {{ $ceoInfo->ceo_quote ?? '"True leadership is not about being in charge. It\'s about taking care of those in your charge and innovating for their success."' }}
+                </p>
+                <p class="mt-4 text-gray-500 font-medium">— {{ $ceoInfo->ceo_name ?? 'Eng. Adel' }}</p>
+            </div>
         </div>
     </div>
 </div>
+<!-- CEO Section - Add this anywhere in your Index.blade.php -->
 
+        <!-- First Nav (not sticky) -->
 
-
-
-    <!-- First Nav (not sticky) -->
 
 
 
     <!-- Counter Section -->
 <section
-    class="py-16  bg-cover bg-center bg-no-repeat"
-    style="background-image: url('{{ asset('images/earthbackground.jpg') }}'); background-attachment: fixed; min-height: 220px; ">
-    <!-- محتوى القسم -->
-
+    class="py-16 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('{{ asset('images/earthbackground.jpg') }}'); background-attachment: fixed; min-height: 220px;">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
-    <div class="flex flex-nowrap gap-6 min-w-max"> <!-- Changed to min-w-max -->
-      <!-- Counter Boxes (same as your code) -->
-<div class="counter-box bg-black/40 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
-        <i data-feather="folder" class="text-blue-500 w-10 h-10"></i>
-        <div>
-          <p class="text-white font-medium">Total Projects</p>
-          <p class="text-2xl font-bold text-blue-600 counter" data-target="200">0+</p>
-        </div>
-      </div>
+        <div class="flex flex-nowrap gap-6 min-w-max">
+            <!-- Total Projects -->
+            <div class="counter-box bg-black/60 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
+                <i data-feather="folder" class="text-blue-500 w-10 h-10"></i>
+                <div>
+                    <p class="text-white font-medium">Total Projects</p>
+                    <p class="text-2xl font-bold text-blue-600 counter"
+                       data-target="{{ $totals->total_projects ?? 0 }}">
+                        {{ number_format($totals->total_projects ?? 0) }}
+                    </p>
+                </div>
+            </div>
 
-<div class="counter-box bg-black/40 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
-        <i data-feather="users" class="text-green-500 w-10 h-10"></i>
-        <div>
-          <p class="text-white font-medium">Total Clients</p>
-          <p class="text-2xl font-bold text-green-600 counter" data-target="100">0+</p>
-        </div>
-      </div>
+            <!-- Total Clients -->
+            <div class="counter-box bg-black/60 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
+                <i data-feather="users" class="text-green-500 w-10 h-10"></i>
+                <div>
+                    <p class="text-white font-medium">Total Clients</p>
+                    <p class="text-2xl font-bold text-green-600 counter"
+                       data-target="{{ $totals->total_clients ?? 0 }}">
+                        {{ number_format($totals->total_clients ?? 0) }}
+                    </p>
+                </div>
+            </div>
 
-<div class="counter-box bg-black/40 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
-        <i data-feather="user-check" class="text-purple-500 w-10 h-10"></i>
-        <div>
-          <p class="text-white font-medium">Total Employees</p>
-          <p class="text-2xl font-bold text-purple-600 counter" data-target="50">0+</p>
-        </div>
-      </div>
+            <!-- Total Employees -->
+            <div class="counter-box bg-black/60 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
+                <i data-feather="user-check" class="text-purple-500 w-10 h-10"></i>
+                <div>
+                    <p class="text-white font-medium">Total Employees</p>
+                    <p class="text-2xl font-bold text-purple-600 counter"
+                       data-target="{{ $totals->total_employees ?? 0 }}">
+                        {{ number_format($totals->total_employees ?? 0) }}
+                    </p>
+                </div>
+            </div>
 
-<div class="counter-box bg-black/40 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
-        <i data-feather="globe" class="text-red-500 w-10 h-10"></i>
-        <div>
-          <p class="text-white font-medium">Total Countries</p>
-          <p class="text-2xl font-bold text-red-600 counter" data-target="25">0+</p>
-        </div>
-      </div>
+            <!-- Total Countries -->
+            <div class="counter-box bg-black/60 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
+                <i data-feather="globe" class="text-red-500 w-10 h-10"></i>
+                <div>
+                    <p class="text-white font-medium">Total Countries</p>
+                    <p class="text-2xl font-bold text-red-600 counter"
+                       data-target="{{ $totals->total_countries ?? 0 }}">
+                        {{ number_format($totals->total_countries ?? 0) }}
+                    </p>
+                </div>
+            </div>
 
-<div class="counter-box bg-black/40 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
-        <i data-feather="map-pin" class="text-yellow-500 w-10 h-10"></i>
-        <div>
-          <p class="text-white font-medium">Total Cities</p>
-          <p class="text-2xl font-bold text-yellow-600 counter" data-target="60">0+</p>
+            <!-- Total Cities -->
+            <div class="counter-box bg-black/60 rounded-lg shadow-md p-6 flex items-center space-x-4 w-64 shrink-0">
+                <i data-feather="map-pin" class="text-yellow-500 w-10 h-10"></i>
+                <div>
+                    <p class="text-white font-medium">Total Cities</p>
+                    <p class="text-2xl font-bold text-yellow-600 counter"
+                       data-target="{{ $totals->total_cities ?? 0 }}">
+                        {{ number_format($totals->total_cities ?? 0) }}
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <!-- Last Updated Indicator -->
+        @if(isset($lastUpdated) && $lastUpdated)
+            <div class="text-center text-white/70 text-sm mt-4">
+                <i data-feather="clock" class="inline-block w-4 h-4 mr-1"></i>
+                Last updated: {{ $lastUpdated->updated_at->format('F d, Y H:i') }}
+            </div>
+        @endif
     </div>
-  </div>
 </section>
 
 <style>
-/* Scrollbar for WebKit (Chrome, Safari, Edge) */
-.overflow-x-auto::-webkit-scrollbar {
-  margin-top: 3px;
-  height: 10px;
-}
+    /* Scrollbar for WebKit (Chrome, Safari, Edge) */
+    .overflow-x-auto::-webkit-scrollbar {
+        margin-top: 3px;
+        height: 10px;
+    }
 
-.overflow-x-auto::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+    .overflow-x-auto::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
 
-.overflow-x-auto::-webkit-scrollbar-thumb {
-  background-color: #e9bc64;
-  border-radius: 10px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
+    .overflow-x-auto::-webkit-scrollbar-thumb {
+        background-color: #e9bc64;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+    }
 
-/* Firefox scrollbar */
-.overflow-x-auto {
-  scrollbar-color: #e9bc64 #f1f1f1; /* thumb and track */
-  scrollbar-width: thin;
-}
+    /* Firefox scrollbar */
+    .overflow-x-auto {
+        scrollbar-color: #e9bc64 #f1f1f1;
+        scrollbar-width: thin;
+    }
 </style>
-
-
-
 
 <!-- Feather & Counter Script -->
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script>
-  // Initialize feather icons
-  feather.replace();
+    // Initialize feather icons
+    feather.replace();
 
-  // Improved counter animation
-  function animateCounter(el) {
-    const target = +el.getAttribute("data-target");
-    const duration = 2000; // Animation duration in ms
-    const startTime = performance.now();
+    // Improved counter animation
+    function animateCounter(el) {
+        const target = parseInt(el.getAttribute("data-target")) || 0;
 
-    const updateCounter = (timestamp) => {
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const currentValue = Math.floor(progress * target);
-
-      el.textContent = currentValue + '+';
-
-      if (progress < 1) {
-        requestAnimationFrame(updateCounter);
-      }
-    };
-
-    requestAnimationFrame(updateCounter);
-  }
-
-  // Wait for DOM to load
-  document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll(".counter");
-
-    // Improved Intersection Observer configuration
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
+        // If target is 0, just display 0
+        if (target === 0) {
+            el.textContent = '0';
+            return;
         }
-      });
-    }, {
-      threshold: 0.5,
-      rootMargin: '0px 0px 0px 100px' // Trigger when 100px from entering viewport
-    });
 
-    // Observe each counter directly (not the parent box)
-    counters.forEach(counter => observer.observe(counter));
+        const duration = 2000;
+        const startTime = performance.now();
+        const startValue = 0;
 
-    // Fallback for browsers without IntersectionObserver
-    if (!('IntersectionObserver' in window)) {
-      counters.forEach(counter => animateCounter(counter));
+        const updateCounter = (timestamp) => {
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
+
+            el.textContent = currentValue.toLocaleString();
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                el.textContent = target.toLocaleString();
+            }
+        };
+
+        requestAnimationFrame(updateCounter);
     }
-  });
-</script>
 
+    // Wait for DOM to load
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll(".counter");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        counters.forEach(counter => observer.observe(counter));
+
+        if (!('IntersectionObserver' in window)) {
+            counters.forEach(counter => animateCounter(counter));
+        }
+    });
+</script>
 
 
 
@@ -293,153 +641,387 @@ delivering the best
 
 <!-------------------------------------------------------------------------------------------------------->
 
-    <style>
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .news-item {
-            animation: slideIn 0.6s ease-out forwards;
+   <style>
+    /* ===== ENHANCED ANIMATIONS ===== */
+    @keyframes slideIn {
+        from {
             opacity: 0;
+            transform: translateY(30px) scale(0.97);
         }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
 
-        .news-item:nth-child(1) { animation-delay: 0.1s; }
-        .news-item:nth-child(2) { animation-delay: 0.3s; }
-        .news-item:nth-child(3) { animation-delay: 0.5s; }
-        .news-item:nth-child(4) { animation-delay: 0.7s; }
-    </style>
-<section class="max-w-6xl w-full mt-4 mx-auto py-12 fade-slide-right" id="Latest_News">
-        <!-- Section Header -->
-<div class="text-center mb-16 fade-slide-right">
-    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-10">Latest News</h2>
-    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Stay updated with our most recent announcements and stories</p>
-    <div class="w-full h-1 bg-[#e9bc64] mx-auto mt-6 rounded-full"></div>
-</div>
-<style>
-.fade-slide-right {
-    opacity: 0;
-    transform: translateX(100px);
-    transition: all 0.8s ease-out;
-}
+    @keyframes fadeSlideRight {
+        0% {
+            opacity: 0;
+            transform: translateX(60px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 
-.fade-slide-right.is-visible {
-    opacity: 1;
-    transform: translateX(0);
-}
+    @keyframes pulseGlow {
+        0% {
+            box-shadow: 0 0 0 0 rgba(233, 188, 100, 0.3);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(233, 188, 100, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(233, 188, 100, 0);
+        }
+    }
+
+    .news-item {
+        animation: slideIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        opacity: 0;
+    }
+
+    .news-item:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    .news-item:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+    .news-item:nth-child(3) {
+        animation-delay: 0.5s;
+    }
+    .news-item:nth-child(4) {
+        animation-delay: 0.7s;
+    }
+
+    .fade-slide-right {
+        opacity: 0;
+        transform: translateX(60px);
+        transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-slide-right.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Modern Card Hover Effects */
+    .news-card {
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        border: 1px solid transparent;
+    }
+
+    .news-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(233, 188, 100, 0.15);
+        border-color: rgba(233, 188, 100, 0.2);
+    }
+
+    .news-card .image-wrapper {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s ease;
+    }
+
+    .news-card .image-wrapper img {
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .news-card:hover .image-wrapper img {
+        transform: scale(1.05);
+    }
+
+    .news-card .image-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.2) 100%);
+        pointer-events: none;
+    }
+
+    .news-card .badge {
+        background: rgba(233, 188, 100, 0.95);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .news-card:hover .badge {
+        background: #e9bc64;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(233, 188, 100, 0.4);
+    }
+
+    /* Read More Button */
+    .read-more-btn {
+        position: relative;
+        transition: all 0.3s ease;
+        background: transparent;
+        color: #e9bc64;
+        font-weight: 600;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .read-more-btn::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #e9bc64;
+        transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .read-more-btn:hover::after {
+        width: 100%;
+    }
+
+    .read-more-btn .arrow-icon {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+
+    .read-more-btn:hover .arrow-icon {
+        transform: translateX(4px);
+    }
+
+    .read-more-btn.active .arrow-icon {
+        transform: rotate(180deg);
+    }
+
+    /* View All Button */
+    .view-all-btn {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        background: #e9bc64;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        padding: 14px 32px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 20px rgba(233, 188, 100, 0.3);
+    }
+
+    .view-all-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(233, 188, 100, 0.45);
+        background: #d4a84a;
+    }
+
+    .view-all-btn:active {
+        transform: translateY(0) scale(0.97);
+    }
+
+    .view-all-btn .btn-shimmer {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+    }
+
+    .view-all-btn:hover .btn-shimmer {
+        transform: translateX(100%);
+    }
+
+    .view-all-btn svg {
+        transition: transform 0.3s ease;
+    }
+
+    .view-all-btn:hover svg {
+        transform: translateX(4px);
+    }
+
+    /* Section Divider */
+    .section-divider {
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #e9bc64, #f5d48a);
+        border-radius: 4px;
+        margin: 16px auto 0;
+        position: relative;
+    }
+
+    .section-divider::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 4px;
+        background: #fff;
+        border-radius: 4px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    /* Content transition */
+    .news-content {
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .news-content.hidden-content {
+        display: none;
+    }
+
+    .date-badge {
+        background: rgba(0, 0, 0, 0.04);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        color: #666;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* Responsive fine-tune */
+    @media (max-width: 640px) {
+        .news-item {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
 </style>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Stop observing once it's visible
-            }
-        });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-slide-right').forEach(el => {
-        observer.observe(el);
-    });
-});
-</script>
+<section class="max-w-6xl w-full mt-4 mx-auto py-12 px-4 sm:px-6 fade-slide-right" id="Latest_News">
 
-
-
-
-
-
-@php use Illuminate\Support\Str; @endphp
-
-<!-- Modal -->
-<!-- Modal -->
-<div id="modal" class="fixed w-full inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white p-6 rounded-lg max-w-2xl w-full relative">
-        <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-        <div id="modalContent" class="break-words whitespace-pre-wrap overflow-y-auto max-h-[70vh]"></div>
+    <!-- ===== Section Header ===== -->
+    <div class="text-center mb-16 fade-slide-right">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 mt-10 tracking-tight">
+            Latest <span class="text-[#e9bc64]">News</span>
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Stay updated with our most recent announcements and stories</p>
+        <div class="section-divider"></div>
     </div>
-</div>
 
+    <!-- ===== News Grid ===== -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        @php use Illuminate\Support\Str; @endphp
+        @foreach($news->sortByDesc('created_at')->take(3) as $item)
+            @php
+                $cleanContent = strip_tags($item->content);
+                $isLong = strlen($cleanContent) > 150;
+                $preview = $isLong ? Str::limit($cleanContent, 150, '...') : $cleanContent;
+                $fullContent = $cleanContent;
+            @endphp
+
+            <div class="news-item bg-white rounded-2xl shadow-lg overflow-hidden news-card">
+
+                <!-- Image -->
+                <div class="image-wrapper h-52 overflow-hidden relative">
+                    @if($item->image)
+                        <img src="{{ asset('storage/' . $item->image) }}" class="w-full h-full object-cover" alt="{{ $item->title }}" loading="lazy" />
+                    @else
+                        <div class="w-full h-full bg-gradient-to-br from-[#e9bc64]/20 to-[#e9bc64]/5 flex items-center justify-center text-gray-400">
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        </div>
+                    @endif
+                    <div class="image-overlay"></div>
+
+                    <!-- Badge -->
+                    <div class="absolute top-4 right-4 badge text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                        {{ Str::limit($item->title, 20) }}
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="p-6">
+                    <!-- Date -->
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <span class="date-badge">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                            {{ $item->created_at->format('M j, Y') }}
+                        </span>
+                    </div>
+
+                    <!-- Title -->
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 leading-snug line-clamp-2">{{ $item->subtitle }}</h3>
+
+                    <!-- Preview -->
+                    <p id="preview-{{ $item->id }}" class="text-gray-600 leading-relaxed text-sm news-content">
+                        {{ $preview }}
+                    </p>
+
+                    <!-- Full content (hidden initially) -->
+                    @if($isLong)
+                        <p id="full-{{ $item->id }}" class="text-gray-700 leading-relaxed text-sm news-content hidden-content">
+                            {{ $fullContent }}
+                        </p>
+
+                        <button onclick="toggleExpand({{ $item->id }})" class="read-more-btn mt-3 text-sm">
+                            <span id="btnText-{{ $item->id }}">Read More</span>
+                            <span class="arrow-icon">→</span>
+                        </button>
+                    @endif
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    <!-- ===== View More Button ===== -->
+    <div class="text-center mt-14">
+        <a href="/allnews" class="view-all-btn relative">
+            <span class="btn-shimmer"></span>
+            <span>View All News</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        </a>
+    </div>
+
+</section>
 
 <script>
-    function openModal(content) {
-        const modal = document.getElementById('modal');
-        const modalContent = document.getElementById('modalContent');
-        modalContent.innerHTML = content;
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
+    // ===== Intersection Observer for fade-slide-right =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
 
-    function closeModal() {
-        const modal = document.getElementById('modal');
-        modal.classList.remove('flex');
-        modal.classList.add('hidden');
+        document.querySelectorAll('.fade-slide-right').forEach(el => {
+            observer.observe(el);
+        });
+    });
+
+    // ===== Toggle Read More / Less =====
+    function toggleExpand(id) {
+        const preview = document.getElementById('preview-' + id);
+        const full = document.getElementById('full-' + id);
+        const btn = document.getElementById('btnText-' + id);
+        const btnContainer = btn.closest('.read-more-btn');
+
+        if (full.classList.contains('hidden-content')) {
+            // Show full content
+            full.classList.remove('hidden-content');
+            preview.classList.add('hidden-content');
+            btn.textContent = 'Show Less';
+            btnContainer.classList.add('active');
+        } else {
+            // Show preview
+            full.classList.add('hidden-content');
+            preview.classList.remove('hidden-content');
+            btn.textContent = 'Read More';
+            btnContainer.classList.remove('active');
+        }
     }
 </script>
-
-<!-- News Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-@foreach($news->sortByDesc('created_at')->take(3) as $item)
-        @php
-            $cleanContent = strip_tags($item->content);
-            $isLongContent = strlen($cleanContent) > 150;
-            $previewContent = $isLongContent ? Str::limit($cleanContent, 150, '...') : $cleanContent;
-        @endphp
-
-        <div class="news-item bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-            <div class="relative h-48 overflow-hidden">
-                @if($item->image)
-                    <img src="{{ asset('storage/' . $item->image) }}" alt="News image" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                @endif
-
-                <div class="absolute top-4 right-4 bg-[#e9bc64] text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    {{ $item->title }}
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="flex items-center text-sm text-gray-500 mb-2">
-                    <span>{{ $item->created_at->format('F j, Y') }}</span>
-                    <span class="mx-2">•</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">{{ $item->subtitle }}</h3>
-                <p class="text-gray-600 mb-4">{{ $previewContent }}</p>
-
-                @if($isLongContent)
-                    <button onclick="openModal(`{!! addslashes($item->content) !!}`)"
-                            class="text-[#e9bc64] font-medium hover:text-[#f5c361] inline-flex items-center">
-                        Read More
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
-                             viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                @endif
-            </div>
-        </div>
-    @endforeach
-</div>
-
-
-        <!-- View More Button -->
-<div class="text-center mt-12 animate-slideIn" style="animation-delay: 0.9s;">
-    <a href="/allnews" class="inline-flex items-center px-6 py-3 bg-[#e9bc64] text-white font-medium rounded-lg hover:bg-[#e9bc64] transition-colors duration-300 shadow-md hover:shadow-lg">
-        View All News
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-    </a>
-</div>
-
-    </section>
-
 
     <!---------------------------------------------------------------------------------------------------->
 
@@ -663,100 +1245,419 @@ agile and responsive to emerging trends and the needs of a dynamic field</p>
 
 
 <!-- ====== Services Section Start -->
-<section id="Our_Services" class="pb-12 pt-20 border-spacing-2 lg:pb-[90px] lg:pt-[120px] dark:bg-dark border-3 border-solid border-red-500 w-[95%] mx-auto">
-    <div class="container mx-auto" >
-      <div class="-mx-4 flex flex-wrap">
-<div class="w-full px-4">
-    <div id="servicesSection" class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20 opacity-0">
-      <span class="mb-2 block text-lg font-semibold text-[#e9bc64]">
-        Our Services
-      </span>
-      <h2 class="mb-3 text-3xl font-bold leading-[1.2] text-gray-900 sm:text-4xl md:text-[40px]">
-        What We Offer
-      </h2>
-
-    </div>
-  </div>
 <style>
-   @keyframes slideInFromLeft {
-      0% {
+    /* ===== OUR SERVICES - MODERN STYLES ===== */
+
+    /* Section background with subtle gradient */
+    #Our_Services {
+        background: linear-gradient(180deg, #faf8f5 0%, #ffffff 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Decorative background elements */
+    #Our_Services::before {
+        content: '';
+        position: absolute;
+        top: -30%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(233, 188, 100, 0.06) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    #Our_Services::after {
+        content: '';
+        position: absolute;
+        bottom: -20%;
+        left: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(233, 188, 100, 0.04) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    /* Service Card */
+    .service-card {
+        position: relative;
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 32px 28px;
+        transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        border: 1px solid rgba(233, 188, 100, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Card accent line */
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 0;
+        background: linear-gradient(180deg, #e9bc64, #f5d48a);
+        border-radius: 0 0 4px 0;
+        transition: height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .service-card:hover::before {
+        height: 100%;
+    }
+
+    /* Card hover effects */
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px -12px rgba(233, 188, 100, 0.2), 0 0 0 1px rgba(233, 188, 100, 0.1);
+        border-color: rgba(233, 188, 100, 0.15);
+    }
+
+    /* Card icon */
+    .service-icon {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, rgba(233, 188, 100, 0.12), rgba(233, 188, 100, 0.04));
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        flex-shrink: 0;
+    }
+
+    .service-card:hover .service-icon {
+        background: linear-gradient(135deg, #e9bc64, #d4a84a);
+        transform: scale(1.05) rotate(-3deg);
+        box-shadow: 0 8px 25px rgba(233, 188, 100, 0.3);
+    }
+
+    .service-icon svg {
+        width: 26px;
+        height: 26px;
+        color: #e9bc64;
+        transition: all 0.4s ease;
+    }
+
+    .service-card:hover .service-icon svg {
+        color: #ffffff;
+    }
+
+    /* Card title */
+    .service-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #1a1d27;
+        margin-bottom: 12px;
+        transition: color 0.3s ease;
+        line-height: 1.3;
+    }
+
+    .service-card:hover .service-title {
+        color: #e9bc64;
+    }
+
+    /* Card description */
+    .service-description {
+        color: #6b7280;
+        line-height: 1.7;
+        font-size: 0.95rem;
+        flex: 1;
+    }
+
+    /* Card link/arrow (appears on hover) */
+    .service-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+        color: #e9bc64;
+        font-weight: 600;
+        font-size: 0.9rem;
         opacity: 0;
-        transform: translateX(-100%);
-      }
-      100% {
+        transform: translateX(-10px);
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        text-decoration: none;
+    }
+
+    .service-card:hover .service-link {
         opacity: 1;
         transform: translateX(0);
-      }
+    }
+
+    .service-link svg {
+        width: 18px;
+        height: 18px;
+        transition: transform 0.3s ease;
+    }
+
+    .service-link:hover svg {
+        transform: translateX(4px);
+    }
+
+    /* Card number badge (subtle) */
+    .service-number {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: rgba(233, 188, 100, 0.15);
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+    }
+
+    .service-card:hover .service-number {
+        color: rgba(233, 188, 100, 0.3);
+    }
+
+    /* Section header animation */
+    @keyframes slideInFromLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-60px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .animate-slide-in {
-      animation: slideInFromLeft 1s ease-out forwards;
+        animation: slideInFromLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
-  </style>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const section = document.getElementById("servicesSection");
+    .animate-fade-up {
+        animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        opacity: 0;
+    }
 
-      const observer = new IntersectionObserver(
-        function (entries) {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              section.classList.add("animate-slide-in");
-              section.classList.remove("opacity-0");
-              observer.unobserve(section); // Only trigger once
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
+    /* Staggered card animation */
+    .service-card-wrapper {
+        opacity: 0;
+        animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
 
-      observer.observe(section);
-    });
-  </script>
-      </div>
+    .service-card-wrapper:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    .service-card-wrapper:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    .service-card-wrapper:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    .service-card-wrapper:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+    .service-card-wrapper:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+    .service-card-wrapper:nth-child(6) {
+        animation-delay: 0.6s;
+    }
 
+    /* View All Button - Enhanced */
+    .view-all-services {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #e9bc64, #d4a84a);
+        color: #ffffff;
+        font-weight: 600;
+        padding: 14px 36px;
+        border-radius: 14px;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow: 0 4px 25px rgba(233, 188, 100, 0.3);
+        text-decoration: none;
+        cursor: pointer;
+    }
 
+    .view-all-services:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(233, 188, 100, 0.4);
+        background: linear-gradient(135deg, #d4a84a, #c49a3a);
+    }
 
-      <div class="-mx-4 flex flex-wrap">
-        @if(isset($services) && count($services))
-            @foreach($services as $service)
-        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-          <div class="mb-9 rounded-[20px] shadow-2xl bg-white p-10 shadow-2 hover:shadow-lg md:px-7 xl:px-10 dark:bg-dark-2">
+    .view-all-services:active {
+        transform: translateY(0) scale(0.97);
+    }
 
-            <h4 class="mb-[14px] text-2xl font-semibold text-dark dark:text-white">
-              {{ $service->title }}
-            </h4>
-            <p class="text-body-color dark:text-dark-6">
-              {{ $service->description }}
-            </p>
-          </div>
+    .view-all-services .btn-shimmer {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+    }
+
+    .view-all-services:hover .btn-shimmer {
+        transform: translateX(100%);
+    }
+
+    .view-all-services svg {
+        transition: transform 0.3s ease;
+    }
+
+    .view-all-services:hover svg {
+        transform: translateX(4px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+        .service-card {
+            padding: 24px 20px;
+        }
+        .service-title {
+            font-size: 1.15rem;
+        }
+        .service-description {
+            font-size: 0.9rem;
+        }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+        }
+        .service-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+    }
+</style>
+
+<section id="Our_Services" class="pb-12 pt-20 lg:pb-[90px] lg:pt-[120px] w-[95%] mx-auto relative">
+    <div class="container mx-auto">
+
+        <!-- Section Header -->
+        <div class="-mx-4 flex flex-wrap">
+            <div class="w-full px-4">
+                <div id="servicesSection" class="mx-auto mb-12 max-w-[510px] text-center lg:mb-16 opacity-0">
+                    <span class="mb-2 block text-lg font-semibold text-[#e9bc64] uppercase tracking-wider">
+                        Our Services
+                    </span>
+                    <h2 class="mb-3 text-3xl font-extrabold leading-[1.2] text-gray-900 sm:text-4xl md:text-[42px]">
+                        What <span class="text-[#e9bc64]">We Offer</span>
+                    </h2>
+                    <p class="text-gray-500 text-base mt-2">Comprehensive solutions tailored to your needs</p>
+                </div>
+            </div>
         </div>
-        @endforeach
-    @endif
 
+        <!-- Services Grid -->
+        <div class="-mx-4 flex flex-wrap">
+            @if(isset($services) && count($services))
+                @foreach($services as $service)
+                    <div class="w-full px-4 md:w-1/2 lg:w-1/3 service-card-wrapper">
+                        <div class="service-card">
 
+                            <!-- Number badge -->
+                            <span class="service-number">{{ sprintf('%02d', $loop->iteration) }}</span>
 
+                            <!-- Icon -->
+                            <div class="service-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+                            </div>
 
+                            <!-- Title -->
+                            <h4 class="service-title">
+                                {{ $service->title }}
+                            </h4>
 
+                            <!-- Description -->
+                            <p class="service-description">
+                                {{ $service->description }}
+                            </p>
 
+                            <!-- Link (appears on hover) -->
+                            <a href="#" class="service-link">
+                                Learn More
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
         </div>
 
-<div class="mt-12 flex justify-center">
-    <a href="/allservices" class="inline-flex items-center px-6 py-3 bg-[#e9bc64] text-white font-medium rounded-lg hover:bg-[#f9c357] transition-colors duration-300 shadow-md hover:shadow-lg">
-        View All Services
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-    </a>
-</div>
+        <!-- View All Button -->
+        <div class="mt-14 flex justify-center">
+            <a href="/allservices" class="view-all-services relative">
+                <span class="btn-shimmer"></span>
+                View All Services
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        </div>
 
-
-
-
-      </div>
     </div>
-  </section>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Header animation observer
+        const section = document.getElementById("servicesSection");
+
+        const observer = new IntersectionObserver(
+            function(entries) {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        section.classList.add("animate-slide-in");
+                        section.classList.remove("opacity-0");
+                        observer.unobserve(section);
+                    }
+                });
+            }, { threshold: 0.3 }
+        );
+
+        observer.observe(section);
+
+        // Card animation trigger - cards already have animation-delay via CSS
+        // but we ensure they become visible when the section comes into view
+        const cardWrapper = document.querySelectorAll('.service-card-wrapper');
+
+        const cardObserver = new IntersectionObserver(
+            function(entries) {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // The cards already have the animation class, just ensure they're visible
+                        entry.target.style.opacity = '1';
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 }
+        );
+
+        cardWrapper.forEach((card) => {
+            cardObserver.observe(card);
+        });
+    });
+</script>
   <!-- ====== Services Section End -->
 
 
@@ -773,72 +1674,393 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0 overflow-hidden">
         <img src="{{ asset('images/Background.jpg') }}" alt="Background" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    </div>
+
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-10 w-64 h-64 bg-[#e9bc64]/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-80 h-80 bg-[#e9bc64]/5 rounded-full blur-3xl"></div>
     </div>
 
     <div class="relative max-w-7xl mx-auto">
         @if($newestProjects->count())
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8 text-center">Our Newest Projects</h2>
+            <div class="text-center mb-8 md:mb-12">
+                <span class="inline-block px-4 py-1.5 bg-[#e9bc64]/20 backdrop-blur-sm text-[#e9bc64] text-xs sm:text-sm font-semibold rounded-full mb-3 tracking-wider uppercase border border-[#e9bc64]/20">
+                    Latest Work
+                </span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
+                    Our Newest <span class="text-[#e9bc64]">Projects</span>
+                </h2>
+                <div class="w-20 h-1 bg-[#e9bc64] mx-auto rounded-full"></div>
+            </div>
 
-            <!-- Single column on mobile, responsive grid on larger screens -->
-<div class="flex flex-col mx-2 space-y-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:space-y-0">
-                @foreach($newestProjects as $project)
-                    <div
-                        x-data="{ expanded: false }"
-                        class="w-full  bg-gray-500/50  bg-opacity-90 backdrop-blur-sm rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 md:hover:scale-[1.02]"
-                    >
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mx-2">
+                @foreach($newestProjects as $projectIndex => $project)
+                    @php
+                        $images = $project->images;
+                        $hasImages = $images->count() > 0;
+                        $fullContent = strip_tags($project->content);
+                        $shortContent = Illuminate\Support\Str::limit($fullContent, 50);
+                        $isLongContent = strlen($fullContent) > 50;
+                        $contentId = 'content-' . $projectIndex . '-' . uniqid();
+                    @endphp
+
+                    <div class="group bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/10 hover:border-[#e9bc64]/30">
+                        <!-- Image Carousel Section -->
+                        <div class="relative overflow-hidden bg-gray-800/50 h-48 md:h-56">
+                            @if($hasImages)
+                                <div class="relative w-full h-full carousel-container" data-project="{{ $projectIndex }}">
+                                    <!-- Main Image -->
+                                    <img
+                                        src="{{ asset('storage/' . $images->first()->image_path) }}"
+                                        alt="{{ $images->first()->alt_text ?? $project->title }}"
+                                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 carousel-image"
+                                        loading="lazy"
+                                        data-project="{{ $projectIndex }}"
+                                        data-index="0"
+                                    >
+
+                                    <!-- Image Counter -->
+                                    <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-white/10">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                        </svg>
+                                        <span class="image-counter" data-project="{{ $projectIndex }}">1/{{ $images->count() }}</span>
+                                    </div>
+
+                                    <!-- Navigation Arrows (visible on hover) -->
+                                    @if($images->count() > 1)
+                                        <div class="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <!-- Left Arrow -->
+                                            <button
+                                                onclick="changeImage({{ $projectIndex }}, 'prev')"
+                                                class="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-300 hover:scale-110 w-8 h-8 flex items-center justify-center backdrop-blur-sm border border-white/10"
+                                                aria-label="Previous image"
+                                            >
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                                                </svg>
+                                            </button>
+
+                                            <!-- Right Arrow -->
+                                            <button
+                                                onclick="changeImage({{ $projectIndex }}, 'next')"
+                                                class="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-300 hover:scale-110 w-8 h-8 flex items-center justify-center backdrop-blur-sm border border-white/10"
+                                                aria-label="Next image"
+                                            >
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    @endif
+
+                                    <!-- Dot Indicators -->
+                                    @if($images->count() > 1)
+                                        <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-1.5">
+                                            @foreach($images as $index => $image)
+                                                <button
+                                                    onclick="goToImage({{ $projectIndex }}, {{ $index }})"
+                                                    class="w-2 h-2 rounded-full transition-all duration-300 dot-indicator {{ $index === 0 ? 'bg-[#e9bc64] w-4' : 'bg-white/50 hover:bg-white/80' }}"
+                                                    data-project="{{ $projectIndex }}"
+                                                    data-index="{{ $index }}"
+                                                    aria-label="Go to image {{ $index + 1 }}"
+                                                ></button>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
+                            @else
+                                <!-- No Image Placeholder -->
+                                <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-700/50 to-gray-800/50">
+                                    <svg class="w-16 h-16 text-gray-500/50 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                    <span class="text-gray-400 text-sm font-medium">No Images</span>
+                                </div>
+                            @endif
+
+                            <!-- Year Badge -->
+                            <div class="absolute bottom-3 left-3 bg-[#e9bc64] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
+                                {{ $project->year }}
+                            </div>
+                        </div>
+
+                        <!-- Content Section -->
                         <div class="p-5 sm:p-6">
-                            <div class="text-sm font-semibold text-[#e9bc64] mb-2">{{ $project->year }}</div>
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-3">{{ $project->title }}</h3>
-                            <p class="text-white mb-4">
-                                <template x-if="!expanded">
-                                    <span>{{ Illuminate\Support\Str::limit($project->content, 70) }}</span>
-                                </template>
-                                <template x-if="expanded">
-                                    <span class="text-white">{{ $project->content }}</span>
-                                </template>
-                            </p>
-                            <button
-                                @click="expanded = !expanded"
-                                class="inline-flex items-center text-[#e9bc64] hover:text-[#fcc85f] font-medium"
-                            >
-                                <span x-text="expanded ? 'Read less' : 'Read more'"></span>
-                                <svg
-                                    class="w-4 h-4 ml-2 transition-transform duration-300"
-                                    :class="{ 'rotate-90': expanded }"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </button>
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="text-xs text-[#e9bc64] font-semibold flex items-center gap-2">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                    {{ $project->created_at->format('M d, Y') }}
+                                </div>
+                                @if($project->images->count() > 0)
+                                    <span class="text-xs text-white/50 flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                        </svg>
+                                        {{ $project->images->count() }}
+                                    </span>
+                                @endif
+                            </div>
+
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-[#e9bc64] transition-colors duration-300">
+                                {{ $project->title }}
+                            </h3>
+
+                            <!-- Content with Read More functionality (Plain JavaScript) -->
+                            <div class="text-white/80 text-sm leading-relaxed mb-3">
+                                @if($isLongContent)
+                                    <div class="project-content-wrapper" id="wrapper-{{ $contentId }}">
+                                        <p class="project-content-short" id="short-{{ $contentId }}">
+                                            {{ $shortContent }}
+                                            <span class="text-[#e9bc64]">...</span>
+                                        </p>
+                                        <p class="project-content-full hidden" id="full-{{ $contentId }}">
+                                            {{ $fullContent }}
+                                        </p>
+                                        <button
+                                            onclick="toggleContent('{{ $contentId }}')"
+                                            class="inline-flex items-center text-[#e9bc64] hover:text-[#fcc85f] font-medium text-sm transition-colors duration-200 mt-1 read-more-btn"
+                                            id="btn-{{ $contentId }}"
+                                        >
+                                            <span>Read More</span>
+                                            <svg
+                                                class="w-4 h-4 ml-2 transition-transform duration-300"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                @else
+                                    <p class="text-white/80">{{ $fullContent }}</p>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 @endforeach
             </div>
 
-<div class="mt-12 flex justify-center">
-    <a href="/allprojects" class="inline-flex items-center px-6 py-3 bg-[#e9bc64] text-white font-medium rounded-lg hover:bg-[#f8c561] transition-colors duration-300 shadow-md hover:shadow-lg">
-        View All Projects
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-    </a>
-</div>
+            <!-- View All Button -->
+            <div class="mt-12 flex justify-center">
+                <a href="/allprojects"
+                   class="group inline-flex items-center px-8 py-4 bg-[#e9bc64] text-white font-semibold rounded-xl hover:bg-[#f8c561] transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1">
+                    <span>View All Projects</span>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         class="h-5 w-5 ml-3 transition-transform duration-300 group-hover:translate-x-1"
+                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
         @else
-<div class="mt-12 flex justify-center">
-    <a href="/allprojects" class="inline-flex items-center px-6 py-3 bg-[#e9bc64] text-white font-medium rounded-lg hover:bg-bg-[#f8c561] transition-colors duration-300 shadow-md hover:shadow-lg">
-        View All Projects
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-    </a>
-</div>
+            <!-- No Projects State -->
+            <div class="text-center py-16">
+                <div class="inline-block p-6 bg-white/5 backdrop-blur-sm rounded-full mb-6">
+                    <svg class="w-16 h-16 text-[#e9bc64]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">No Projects Yet</h3>
+                <p class="text-white/70 max-w-md mx-auto">Check back soon for our latest projects and updates.</p>
+
+                <div class="mt-8 flex justify-center">
+                    <a href="/allprojects"
+                       class="group inline-flex items-center px-8 py-4 bg-[#e9bc64] text-white font-semibold rounded-xl hover:bg-[#f8c561] transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1">
+                        <span>View All Projects</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             class="h-5 w-5 ml-3 transition-transform duration-300 group-hover:translate-x-1"
+                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
         @endif
     </div>
+
+    <style>
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        #Our_Projects {
+            scrollbar-width: thin;
+            scrollbar-color: #e9bc64 transparent;
+        }
+
+        #Our_Projects::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #Our_Projects::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #Our_Projects::-webkit-scrollbar-thumb {
+            background: #e9bc64;
+            border-radius: 10px;
+        }
+
+        .group:hover .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+        }
+
+        .group img {
+            backface-visibility: hidden;
+        }
+
+        .group .opacity-0 {
+            opacity: 0;
+        }
+
+        .group:hover .opacity-0 {
+            opacity: 1;
+        }
+
+        .w-2.h-2 {
+            transition: all 0.3s ease;
+        }
+
+        .w-4 {
+            width: 1rem;
+        }
+
+        button {
+            user-select: none;
+        }
+
+        /* Smooth content transitions */
+        .project-content-short,
+        .project-content-full {
+            transition: all 0.3s ease;
+        }
+
+        .project-content-full {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Read More button hover effect */
+        .read-more-btn:hover svg {
+            transform: translateX(3px);
+        }
+    </style>
 </section>
+
+<script>
+// Read More / Read Less functionality
+function toggleContent(contentId) {
+    const shortContent = document.getElementById('short-' + contentId);
+    const fullContent = document.getElementById('full-' + contentId);
+    const button = document.getElementById('btn-' + contentId);
+    const buttonSpan = button.querySelector('span');
+    const buttonSvg = button.querySelector('svg');
+
+    if (shortContent.classList.contains('hidden')) {
+        // Currently showing full content, switch to short
+        shortContent.classList.remove('hidden');
+        fullContent.classList.add('hidden');
+        buttonSpan.textContent = 'Read More';
+        buttonSvg.style.transform = 'rotate(0deg)';
+    } else {
+        // Currently showing short content, switch to full
+        shortContent.classList.add('hidden');
+        fullContent.classList.remove('hidden');
+        buttonSpan.textContent = 'Read Less';
+        buttonSvg.style.transform = 'rotate(180deg)';
+    }
+}
+
+// Image carousel JavaScript
+const projectImages = @json($newestProjects->map(function($project) {
+    return $project->images->map(function($img) {
+        return [
+            'url' => asset('storage/' . $img->image_path),
+            'alt' => $img->alt_text ?? ''
+        ];
+    })->toArray();
+})->toArray());
+
+let currentIndices = {};
+
+// Initialize current indices for each project
+@foreach($newestProjects as $index => $project)
+    currentIndices[{{ $index }}] = 0;
+@endforeach
+
+function changeImage(projectIndex, direction) {
+    const images = projectImages[projectIndex];
+    if (!images || images.length === 0) return;
+
+    if (direction === 'next') {
+        currentIndices[projectIndex] = (currentIndices[projectIndex] + 1) % images.length;
+    } else {
+        currentIndices[projectIndex] = (currentIndices[projectIndex] - 1 + images.length) % images.length;
+    }
+
+    updateImage(projectIndex);
+}
+
+function goToImage(projectIndex, imageIndex) {
+    const images = projectImages[projectIndex];
+    if (!images || imageIndex >= images.length) return;
+
+    currentIndices[projectIndex] = imageIndex;
+    updateImage(projectIndex);
+}
+
+function updateImage(projectIndex) {
+    const images = projectImages[projectIndex];
+    if (!images || images.length === 0) return;
+
+    const currentIndex = currentIndices[projectIndex];
+    const image = images[currentIndex];
+
+    // Update main image
+    const imgElement = document.querySelector(`.carousel-image[data-project="${projectIndex}"]`);
+    if (imgElement) {
+        imgElement.src = image.url;
+        imgElement.alt = image.alt;
+        imgElement.dataset.index = currentIndex;
+    }
+
+    // Update counter
+    const counterElement = document.querySelector(`.image-counter[data-project="${projectIndex}"]`);
+    if (counterElement) {
+        counterElement.textContent = `${currentIndex + 1}/${images.length}`;
+    }
+
+    // Update dot indicators
+    const dots = document.querySelectorAll(`.dot-indicator[data-project="${projectIndex}"]`);
+    dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+            dot.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-[#e9bc64] w-4 dot-indicator';
+        } else {
+            dot.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-white/50 hover:bg-white/80 dot-indicator';
+        }
+    });
+}
+</script>
 
 
 <!-----------------------------------------------------our team --------------------------------------->
@@ -1078,99 +2300,14 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
 
 <!-------------------------------------------------------------->
 
-
-
-<!-- Floating Chatbot Button -->
-<!-- Floating Chatbot Button + Popup -->
-<!-- Floating Chatbot Button + Popup -->
-<!-- Floating Chatbot Button + Styled Popup -->
-<!-- Floating Chatbot Button + Popup -->
-<!-- Floating Chatbot Button + Popup -->
-{{-- <div class="fixed bottom-6 right-6 z-50 font-sans group">
-
-  <!-- Chatbot Popup -->
-  <div id="chatPopup"
-    class="hidden w-96 h-[500px] bg-white shadow-2xl rounded-2xl flex flex-col overflow-hidden animate-fade-in">
-
-    <!-- Header -->
-    <div class="flex items-center justify-between bg-gradient-to-r from-blue-600 to-indigo-600 p-4">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
-          🤖
-        </div>
-        <h2 class="text-white font-semibold text-lg">Chat Assistant</h2>
-      </div>
-      <button onclick="closeChat()" class="text-white text-2xl font-bold hover:text-gray-200">×</button>
-    </div>
-
-    <!-- Chat Body -->
-    <div id="chatBody" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50">
-      <div class="bg-gray-100 p-3 rounded-xl max-w-[80%] text-sm">
-        👋 Hello! I’m your AW Engineering Assistant. Ask me something below.
-      </div>
-
-      <!-- Static Response Buttons -->
-      <div id="optionButtons" class="flex flex-col gap-2 mt-2">
-        <button onclick="selectOption(this)"
-          class="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition text-left">When was AW Engineering founded?</button>
-        <button onclick="selectOption(this)"
-          class="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition text-left">Where is AW Engineering located?</button>
-        <button onclick="selectOption(this)"
-          class="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition text-left">What services does AW Engineering offer?</button>
-      </div>
-    </div>
-
-    <!-- Input -->
-    <div class="flex items-center p-4 border-t bg-gray-100">
-      <input id="chatInput" type="text" placeholder="Type a message..."
-        class="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400" />
-      <button onclick="sendMessage()"
-        class="ml-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full shadow-md transition">
-        Send
-      </button>
-    </div>
-  </div>
-
-  <!-- Floating Button -->
-  <button id="chatButton" onclick="toggleChat()"
-    class="bg-blue-600 hover:bg-blue-700 text-white w-16 h-16 rounded-full shadow-xl flex items-center justify-center relative group">
-
-    <!-- Tooltip -->
-    <span
-      class="absolute -left-28 bottom-5 opacity-0 group-hover:opacity-100 transition bg-gray-800 text-white text-sm py-1 px-3 rounded-lg shadow-lg">
-      Chat with us
-    </span>
-
-    <!-- Chatbot Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg"
-      fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-      stroke="currentColor" class="w-8 h-8">
-      <path stroke-linecap="round" stroke-linejoin="round"
-        d="M8.25 9.75h.008v.008H8.25V9.75zm3 0h.008v.008H11.25V9.75zm3
-           0h.008v.008H14.25V9.75zm-9 4.5h13.5a2.25 2.25 0 002.25-2.25V6
-           A2.25 2.25 0 0018.75 3.75H5.25A2.25 2.25 0 003 6v6
-           a2.25 2.25 0 002.25 2.25zm3 3l2.25-2.25m0 0l2.25 2.25m-2.25-2.25V21" />
-    </svg>
-</button>
-</div> --}}
-
-<!-- Animations -->
-{{-- <style>
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in { animation: fade-in 0.25s ease-out; }
-</style> --}}
- <!-- Chatbot Widget -->
        <!-- Chatbot Widget -->
     <div class="fixed bottom-6 right-6 z-50 font-sans group">
         <!-- Chatbot Popup -->
         <div id="chatPopup" class="hidden w-96 h-[500px] bg-white shadow-2xl rounded-2xl flex flex-col overflow-hidden animate-fade-in">
             <!-- Header -->
-            <div class="flex items-center justify-between bg-gradient-to-r from-blue-600 to-indigo-600 p-4">
+            <div class="flex items-center justify-between bg-gradient-to-r from-[#e9bc64] to-[#e9bc64] p-4">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#e9bc64] font-bold text-lg">
                         🤖
                     </div>
                     <h2 class="text-white font-semibold text-lg">Chat Assistant</h2>
@@ -1186,26 +2323,24 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
 
                 <!-- Static Response Buttons -->
                 <div id="optionButtons" class="flex flex-col gap-2 mt-2">
-                    <button onclick="selectOption(this)" class="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition text-left">When was AW Engineering founded?</button>
-                    <button onclick="selectOption(this)" class="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition text-left">Where is AW Engineering located?</button>
-                    <button onclick="selectOption(this)" class="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition text-left">What services does AW Engineering offer?</button>
-                    <button onclick="selectOption(this)" class="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition text-left">What career opportunities are available?</button>
+                    <button onclick="selectOption(this)" class="bg-[#e9bc64] text-white rounded-lg px-4 py-2 hover:bg-[#f5c15a] transition text-left">When was AW Engineering founded?</button>
+                    <button onclick="selectOption(this)" class="bg-[#e9bc64] text-white rounded-lg px-4 py-2 hover:bg-[#f5c15a] transition text-left">Where is AW Engineering located?</button>
+                    <button onclick="selectOption(this)" class="bg-[#e9bc64] text-white rounded-lg px-4 py-2 hover:bg-[#f5c15a] transition text-left">What services does AW Engineering offer?</button>
+                    <button onclick="selectOption(this)" class="bg-[#e9bc64] text-white rounded-lg px-4 py-2 hover:bg-[#f5c15a] transition text-left">What career opportunities are available?</button>
                 </div>
             </div>
 
             <!-- Input -->
             <div class="flex items-center p-4 border-t bg-gray-100">
-                <input id="chatInput" type="text" placeholder="Type a message..."
-                    class="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
-                    onkeypress="handleKeyPress(event)">
-                <button onclick="sendMessage()" class="ml-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full shadow-md transition">
+
+                <button onclick="sendMessage()" class="ml-3 bg-[#e9bc64] hover:bg-[#f5c15a] text-white px-5 py-2 rounded-full shadow-md transition">
                     Send
                 </button>
             </div>
         </div>
 
         <!-- Floating Button -->
-        <button id="chatButton" onclick="toggleChat()" class="bg-blue-600 hover:bg-blue-700 text-white w-16 h-16 rounded-full shadow-xl flex items-center justify-center relative group">
+        <button id="chatButton" onclick="toggleChat()" class="bg-[#e9bc64] hover:bg-[#f5c15a] text-white w-16 h-16 rounded-full shadow-xl flex items-center justify-center relative group">
             <!-- Tooltip -->
             <span class="absolute -left-28 bottom-5 opacity-0 group-hover:opacity-100 transition bg-gray-800 text-white text-sm py-1 px-3 rounded-lg shadow-lg">
                 Chat with us
@@ -1237,246 +2372,10 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
     <!-- Load chatbot.js WITHOUT Vite for now to test -->
     <script src="{{ asset('js/chatbot.js') }}"></script>
 
-    <!-- JavaScript Code -->
-
-<!-- JS -->
-{{-- <script>
-  function toggleChat() {
-    const popup = document.getElementById("chatPopup");
-    const button = document.getElementById("chatButton");
-
-    popup.classList.toggle("hidden");
-
-    if (!popup.classList.contains("hidden")) {
-      button.classList.add("hidden");
-    }
-  }
-
-  function closeChat() {
-    document.getElementById("chatPopup").classList.add("hidden");
-    document.getElementById("chatButton").classList.remove("hidden");
-  }
-
-  function sendMessage() {
-    const input = document.getElementById("chatInput");
-    if (input.value.trim() === "") return;
-    addUserMessage(input.value);
-    setTimeout(() => addBotMessage(`🤖 I received your message: "${input.value}"`), 500);
-    input.value = "";
-  }
-
-  function addUserMessage(message) {
-    const chatBody = document.getElementById("chatBody");
-    chatBody.innerHTML += `
-      <div class="bg-blue-600 text-white p-3 rounded-xl max-w-[70%] ml-auto text-sm">
-        ${message}
-      </div>
-    `;
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  function addBotMessage(message) {
-    const chatBody = document.getElementById("chatBody");
-    chatBody.innerHTML += `
-      <div class="bg-gray-100 p-3 rounded-xl max-w-[80%] text-sm">
-        ${message}
-      </div>
-    `;
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  // Handles static option clicks
-  function selectOption(button) {
-    const question = button.innerText;
-    const buttonsContainer = document.getElementById("optionButtons");
-
-    addUserMessage(question); // Show as user message
-
-    // Remove all other options except the selected one
-    Array.from(buttonsContainer.children).forEach(btn => {
-      if (btn !== button) btn.remove();
-    });
-
-    let answer = "";
-    if (question.includes("founded")) answer = "AW Engineering was founded in 2016.";
-    else if (question.includes("located")) answer = "AW Engineering is located in Jordan.";
-    else if (question.includes("services")) answer = "AW Engineering offers engineering consulting and IT services.";
-
-    setTimeout(() => addBotMessage(answer), 500);
-  }
-</script> --}}
-
-
 <!-- footer section -->
 
 
-<footer class="w-full">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <!--Grid-->
-            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
-                <div class="col-span-full mb-10 lg:col-span-2 lg:mb-0">
-                    <a href="https://pagedone.io/"  class="flex justify-center lg:justify-start">
-                        <img src="{{ asset('images/newlogo.png') }}" width="150" height="30" alt="">
-                    </a>
-                    <p class="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left">Have any query ?</p>
-<!-- Contact Us Button -->
-<!-- Contact Us Button -->
-<a href="javascript:;" onclick="toggleContactForm()"
-   class="py-2.5 px-5 h-9 block w-fit bg-[#e9bc64] rounded-full shadow-sm text-xs text-white mx-auto transition-all duration-500 hover:bg-[#f6c25c] lg:mx-0">
-    Contact us
-</a>
+    <x-newfooter />
 
-<!-- Hidden Contact Form Section -->
-<div id="contactForm" class="hidden mt-6">
-  <form
-    id="customContactForm"
-    class="max-w-lg mx-auto bg-white p-6 rounded-lg  space-y-4"
-  >
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1"> email:</label>
-      <input
-        type="email"
-        name="email"
-        required
-        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e9bc64]"
-        placeholder="you@example.com"
-      >
-    </div>
-
-    <div>
-      <label class="block text-sm font-medium text-gray-700 mb-1">Your message:</label>
-      <textarea
-        name="message"
-        required
-        rows="4"
-        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e9bc64]"
-        placeholder="Write your message here..."
-      ></textarea>
-    </div>
-
-    <button
-      type="submit"
-      class="bg-[#e9bc64] text-white px-6 py-2 rounded-md hover:bg-[#f6c25c] transition-colors"
-    >
-      Send
-    </button>
-
-    <!-- Confirmation Message -->
-    <p id="formStatus" class="text-sm text-green-600 mt-4 hidden">Thanks! Your message has been sent.</p>
-  </form>
-</div>
-
-<!-- JavaScript -->
-<script>
-  function toggleContactForm() {
-    const form = document.getElementById('contactForm');
-    form.classList.toggle('hidden');
-  }
-
-  document.getElementById('customContactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const formData = new FormData(form);
-    const statusMessage = document.getElementById('formStatus');
-
-    try {
-      const response = await fetch('https://formspree.io/f/xpwrpngk', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        form.reset();
-        statusMessage.classList.remove('hidden');
-        statusMessage.textContent = "Thanks! Your message has been sent.";
-      } else {
-        statusMessage.classList.remove('hidden');
-        statusMessage.textContent = "Oops! Something went wrong.";
-        statusMessage.classList.add('text-red-600');
-      }
-    } catch (error) {
-      statusMessage.classList.remove('hidden');
-      statusMessage.textContent = "Error submitting form. Try again later.";
-      statusMessage.classList.add('text-red-600');
-    }
-  });
-</script>
-
-
-                </div>
-                <!--End Col-->
-                <div class="lg:mx-auto text-left ">
-                    <h4 class="text-lg text-gray-900 font-medium mb-7">Quick links</h4>
-                    <ul class="text-sm  transition-all duration-500">
-                        <li class="mb-6"><a href=""  class="text-gray-600 hover:text-gray-900">Home</a></li>
-                        <li class="mb-6"><a href="#Our_Services"  class=" text-gray-600 hover:text-gray-900">Our Services</a></li>
-                        <li class="mb-6"><a href="#Our_Team"  class=" text-gray-600 hover:text-gray-900">Our Team</a></li>
-                        <li><a href="#Our_Projects"  class=" text-gray-600 hover:text-gray-900">Our Projects</a></li>
-                    </ul>
-                </div>
-                <!--End Col-->
-                <div class="lg:mx-auto text-left ">
-                    <h4 class="text-lg text-gray-900 font-medium mb-7">Address</h4>
-                    <ul class="text-sm  transition-all duration-500">
-                        <li class="mb-6"><a href="javascript:;"  class="text-gray-600 hover:text-gray-900">Jordan</a></li>
-                        <li class="mb-6"><a href="javascript:;"  class=" text-gray-600 hover:text-gray-900">KSA</a></li>
-
-                    </ul>
-                </div>
-                <!--End Col-->
-                <div class="lg:mx-auto text-left">
-                    <h4 class="text-lg text-gray-900 font-medium mb-7">Mobile</h4>
-                    <ul class="text-sm  transition-all duration-500">
-                        <li class="mb-6"><a href="javascript:;"  class="text-gray-600 hover:text-gray-900">Jordan: +962 798984004</a></li>
-                        <li class="mb-6"><a href="javascript:;"  class=" text-gray-600 hover:text-gray-900">Jordan: +962 6523472</a></li>
-                    </ul>
-                </div>
-                <!--End Col-->
-                <div class="lg:mx-auto text-left">
-                    <h4 class="text-lg text-gray-900 font-medium mb-7">Email</h4>
-                    <ul class="text-sm  transition-all duration-500">
-                        <li class="mb-6"><a href="javascript:;"  class=" text-gray-600 hover:text-gray-900">E-MAIL: INFO@AW-ENGINEERING.NET</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!--Grid-->
-            <div class="py-7 border-t border-gray-200">
-                <div class="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
-                    <span class="text-sm text-gray-500 ">©<a>AWEngeering</a> 2025, All rights reserved.</span>
-                    <div class="flex mt-4 space-x-4 sm:justify-center lg:mt-0 ">
-                        <a href="javascript:;"  class="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-indigo-600">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <g id="Social Media">
-                            <path id="Vector" d="M11.3214 8.93666L16.4919 3.05566H15.2667L10.7772 8.16205L7.1914 3.05566H3.05566L8.47803 10.7774L3.05566 16.9446H4.28097L9.022 11.552L12.8088 16.9446H16.9446L11.3211 8.93666H11.3214ZM9.64322 10.8455L9.09382 10.0765L4.72246 3.95821H6.60445L10.1322 8.8959L10.6816 9.66481L15.2672 16.083H13.3852L9.64322 10.8458V10.8455Z" fill="white"/>
-                            </g>
-                          </svg>
-                        </a>
-                        <a href="javascript:;"  class="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-indigo-900">
-                            <svg class="w-[1.25rem] h-[1.125rem] text-white" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.70975 7.93663C4.70975 6.65824 5.76102 5.62163 7.0582 5.62163C8.35537 5.62163 9.40721 6.65824 9.40721 7.93663C9.40721 9.21502 8.35537 10.2516 7.0582 10.2516C5.76102 10.2516 4.70975 9.21502 4.70975 7.93663ZM3.43991 7.93663C3.43991 9.90608 5.05982 11.5025 7.0582 11.5025C9.05658 11.5025 10.6765 9.90608 10.6765 7.93663C10.6765 5.96719 9.05658 4.37074 7.0582 4.37074C5.05982 4.37074 3.43991 5.96719 3.43991 7.93663ZM9.97414 4.22935C9.97408 4.39417 10.0236 4.55531 10.1165 4.69239C10.2093 4.82946 10.3413 4.93633 10.4958 4.99946C10.6503 5.06259 10.8203 5.07916 10.9844 5.04707C11.1484 5.01498 11.2991 4.93568 11.4174 4.81918C11.5357 4.70268 11.6163 4.55423 11.649 4.39259C11.6817 4.23095 11.665 4.06339 11.6011 3.91109C11.5371 3.7588 11.4288 3.6286 11.2898 3.53698C11.1508 3.44536 10.9873 3.39642 10.8201 3.39635H10.8197C10.5955 3.39646 10.3806 3.48424 10.222 3.64043C10.0635 3.79661 9.97434 4.00843 9.97414 4.22935ZM4.21142 13.5892C3.52442 13.5584 3.15101 13.4456 2.90286 13.3504C2.57387 13.2241 2.33914 13.0738 2.09235 12.8309C1.84555 12.588 1.69278 12.3569 1.56527 12.0327C1.46854 11.7882 1.3541 11.4201 1.32287 10.7431C1.28871 10.0111 1.28189 9.79119 1.28189 7.93669C1.28189 6.08219 1.28927 5.86291 1.32287 5.1303C1.35416 4.45324 1.46944 4.08585 1.56527 3.84069C1.69335 3.51647 1.84589 3.28513 2.09235 3.04191C2.3388 2.79869 2.57331 2.64813 2.90286 2.52247C3.1509 2.42713 3.52442 2.31435 4.21142 2.28358C4.95417 2.24991 5.17729 2.24319 7.0582 2.24319C8.9391 2.24319 9.16244 2.25047 9.90582 2.28358C10.5928 2.31441 10.9656 2.42802 11.2144 2.52247C11.5434 2.64813 11.7781 2.79902 12.0249 3.04191C12.2717 3.2848 12.4239 3.51647 12.552 3.84069C12.6487 4.08513 12.7631 4.45324 12.7944 5.1303C12.8285 5.86291 12.8354 6.08219 12.8354 7.93669C12.8354 9.79119 12.8285 10.0105 12.7944 10.7431C12.7631 11.4201 12.6481 11.7881 12.552 12.0327C12.4239 12.3569 12.2714 12.5882 12.0249 12.8309C11.7784 13.0736 11.5434 13.2241 11.2144 13.3504C10.9663 13.4457 10.5928 13.5585 9.90582 13.5892C9.16306 13.6229 8.93994 13.6296 7.0582 13.6296C5.17645 13.6296 4.95395 13.6229 4.21142 13.5892ZM4.15307 1.03424C3.40294 1.06791 2.89035 1.18513 2.4427 1.3568C1.9791 1.53408 1.58663 1.77191 1.19446 2.1578C0.802277 2.54369 0.56157 2.93108 0.381687 3.38797C0.207498 3.82941 0.0885535 4.3343 0.0543922 5.07358C0.0196672 5.81402 0.0117188 6.05074 0.0117188 7.93663C0.0117188 9.82252 0.0196672 10.0592 0.0543922 10.7997C0.0885535 11.539 0.207498 12.0439 0.381687 12.4853C0.56157 12.9419 0.802334 13.3297 1.19446 13.7155C1.58658 14.1012 1.9791 14.3387 2.4427 14.5165C2.89119 14.6881 3.40294 14.8054 4.15307 14.839C4.90479 14.8727 5.1446 14.8811 7.0582 14.8811C8.9718 14.8811 9.212 14.8732 9.96332 14.839C10.7135 14.8054 11.2258 14.6881 11.6737 14.5165C12.137 14.3387 12.5298 14.1014 12.9219 13.7155C13.3141 13.3296 13.5543 12.9419 13.7347 12.4853C13.9089 12.0439 14.0284 11.539 14.062 10.7997C14.0962 10.0587 14.1041 9.82252 14.1041 7.93663C14.1041 6.05074 14.0962 5.81402 14.062 5.07358C14.0278 4.33424 13.9089 3.82913 13.7347 3.38797C13.5543 2.93135 13.3135 2.5443 12.9219 2.1578C12.5304 1.7713 12.137 1.53408 11.6743 1.3568C11.2258 1.18513 10.7135 1.06735 9.96388 1.03424C9.21256 1.00058 8.97236 0.992188 7.05876 0.992188C5.14516 0.992188 4.90479 1.00002 4.15307 1.03424Z" fill="currentColor"/>
-                                </svg>
-
-                        </a>
-                        <a href="javascript:;"  class="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-indigo-600">
-                            <svg class="w-[1rem] h-[1rem] text-white" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.8794 11.5527V3.86835H0.318893V11.5527H2.87967H2.8794ZM1.59968 2.81936C2.4924 2.81936 3.04817 2.2293 3.04817 1.49188C3.03146 0.737661 2.4924 0.164062 1.61666 0.164062C0.74032 0.164062 0.167969 0.737661 0.167969 1.49181C0.167969 2.22923 0.723543 2.8193 1.5829 2.8193H1.59948L1.59968 2.81936ZM4.29668 11.5527H6.85698V7.26187C6.85698 7.03251 6.87369 6.80255 6.94134 6.63873C7.12635 6.17968 7.54764 5.70449 8.25514 5.70449C9.18141 5.70449 9.55217 6.4091 9.55217 7.44222V11.5527H12.1124V7.14672C12.1124 4.78652 10.8494 3.68819 9.16483 3.68819C7.78372 3.68819 7.17715 4.45822 6.84014 4.98267H6.85718V3.86862H4.29681C4.33023 4.5895 4.29661 11.553 4.29661 11.553L4.29668 11.5527Z" fill="currentColor"/>
-                                </svg>
-
-                        </a>
-                        <a href="javascript:;"  class="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-indigo-600">
-                            <svg class="w-[1.25rem] h-[0.875rem] text-white" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9346 1.13529C14.5684 1.30645 15.0665 1.80588 15.2349 2.43896C15.5413 3.58788 15.5413 5.98654 15.5413 5.98654C15.5413 5.98654 15.5413 8.3852 15.2349 9.53412C15.0642 10.1695 14.5661 10.669 13.9346 10.8378C12.7886 11.1449 8.19058 11.1449 8.19058 11.1449C8.19058 11.1449 3.59491 11.1449 2.44657 10.8378C1.81277 10.6666 1.31461 10.1672 1.14622 9.53412C0.839844 8.3852 0.839844 5.98654 0.839844 5.98654C0.839844 5.98654 0.839844 3.58788 1.14622 2.43896C1.31695 1.80353 1.81511 1.30411 2.44657 1.13529C3.59491 0.828125 8.19058 0.828125 8.19058 0.828125C8.19058 0.828125 12.7886 0.828125 13.9346 1.13529ZM10.541 5.98654L6.72178 8.19762V3.77545L10.541 5.98654Z" fill="currentColor"/>
-                            </svg>
-
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

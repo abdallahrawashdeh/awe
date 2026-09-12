@@ -27,12 +27,12 @@
             <div id="sliderTrack" class="flex transition-transform duration-700 ease-in-out">
                 @foreach($imagePaths as $image)
                     <div class="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-2">
-                        <img src="{{ $image }}" class="w-full h-40 object-contain rounded shadow" alt="Certification">
+                        <img src="{{ $image }}" class="w-full h-40 object-contain rounded " alt="Certification">
                     </div>
                 @endforeach
                 @foreach($imagePaths as $image) {{-- Clone for infinite scroll effect --}}
                     <div class="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-2">
-                        <img src="{{ $image }}" class="w-full h-40 object-contain rounded shadow" alt="Certification Clone">
+                        <img src="{{ $image }}" class="w-full h-40 object-contain rounded " alt="Certification Clone">
                     </div>
                 @endforeach
             </div>

@@ -4,7 +4,7 @@
     @endif
 
     <x-slot name="header">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <div class="ml-[14%] flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('Projects Management') }}
             </h2>
@@ -14,7 +14,7 @@
         </div>
     </x-slot>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-[80%] ml-[19%] px-4 sm:px-6 lg:px-8 py-8">
         <!-- Header Section -->
         <div class="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-lg border border-orange-100 dark:border-gray-700 p-6 mb-8">
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
@@ -31,7 +31,7 @@
         </div>
 
         <!-- Stats Overview -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-8">
             <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6">
                 <div class="flex items-center gap-4">
                     <div class="p-3 rounded-xl bg-orange-100 dark:bg-orange-900/30">
@@ -71,6 +71,20 @@
                     </div>
                 </div>
             </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 rounded-xl bg-purple-100 dark:bg-purple-900/30">
+                        <span class="text-2xl text-purple-600 dark:text-purple-400">🖼️</span>
+                    </div>
+                    <div>
+                        @php
+                            $totalImages = $projects->sum(function($p) { return $p->images->count(); });
+                        @endphp
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white">{{ $totalImages }}</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Total Images</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Projects Table -->
@@ -96,6 +110,9 @@
                         <tr class="bg-gray-50 dark:bg-gray-900/50 border-b border-gray-200 dark:border-gray-700">
                             <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                                 Project Details
+                            </th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                                Images
                             </th>
                             <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                                 Project Manager
@@ -130,9 +147,35 @@
                                                     <span>📊</span>
                                                     Project
                                                 </span>
+                                                <span class="inline-flex items-center gap-1 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded-full text-xs font-medium">
+                                                    <span>📅</span>
+                                                    {{ $item->year }}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
+                                </td>
+
+                                <!-- Images Column -->
+                                <td class="px-6 py-4">
+                                    @if($item->images->count() > 0)
+                                        <div class="flex -space-x-2">
+                                            @foreach($item->images->take(3) as $image)
+                                                <div class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 overflow-hidden shadow-sm transition-transform hover:scale-110 hover:z-10" title="{{ $image->alt_text ?? 'Project image' }}">
+                                                    <img src="{{ asset('storage/' . $image->image_path) }}"
+                                                         alt="{{ $image->alt_text ?? 'Project image' }}"
+                                                         class="w-full h-full object-cover">
+                                                </div>
+                                            @endforeach
+                                            @if($item->images->count() > 3)
+                                                <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 border-2 border-white dark:border-gray-800 flex items-center justify-center text-xs font-semibold text-gray-700 dark:text-gray-300">
+                                                    +{{ $item->images->count() - 3 }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    @else
+                                        <span class="text-xs text-gray-400">No images</span>
+                                    @endif
                                 </td>
 
                                 <!-- Author Column -->
@@ -209,7 +252,7 @@
 
                         @if ($projects->count() === 0)
                             <tr>
-                                <td colspan="5" class="px-6 py-12 text-center">
+                                <td colspan="6" class="px-6 py-12 text-center">
                                     <div class="flex flex-col items-center gap-3 text-gray-500 dark:text-gray-400">
                                         <span class="text-4xl">📁</span>
                                         <div class="text-lg font-medium">No projects found</div>

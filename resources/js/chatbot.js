@@ -72,7 +72,7 @@ function addUserMessage(message) {
     const messageDiv = document.createElement('div');
     messageDiv.className = 'flex justify-end mb-3';
     messageDiv.innerHTML = `
-        <div class="bg-blue-600 text-white p-3 rounded-xl ml-auto max-w-[80%] text-sm shadow-sm">
+        <div class="bg-[#e9bc64] text-white p-3 rounded-xl ml-auto max-w-[80%] text-sm shadow-sm">
             ${escapeHtml(message)}
         </div>
     `;
@@ -233,7 +233,7 @@ function showTypingIndicator() {
                     <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
                     <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
                 </div>
-                <span class="text-gray-500 text-xs">AI is typing...</span>
+                <span class="text-gray-500 text-xs">typing...</span>
             </div>
         </div>
     `;

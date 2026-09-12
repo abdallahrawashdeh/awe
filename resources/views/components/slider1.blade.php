@@ -7,7 +7,7 @@
     </video>
 
     <!-- Overlay for dark tint -->
-    <div class="absolute inset-0 bg-black opacity-70 z-20"></div>
+    <div class="absolute inset-0 bg-black opacity-20 z-20"></div>
 
     <!-- Centered Text (hidden initially) -->
     <div class="absolute inset-0 flex items-center justify-center px-4 z-30">
