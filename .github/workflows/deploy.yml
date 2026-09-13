@@ -48,6 +48,17 @@ jobs:
           printf '%s\n' "$KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
           chmod 600 "$HOME/.ssh/deploy_key" "$HOME/.ssh/known_hosts"
 
+      - name: Verify SSH access
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          set -eu
+          test -n "$DEPLOY_HOST" || { echo "DEPLOY_HOST is not configured" >&2; exit 1; }
+          test -n "$DEPLOY_USER" || { echo "DEPLOY_USER is not configured" >&2; exit 1; }
+          ssh -o BatchMode=yes -o IdentitiesOnly=yes -i "$HOME/.ssh/deploy_key" -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" true
+
       - name: Upload application
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
@@ -65,7 +76,7 @@ jobs:
             --exclude='vendor/' \
             --exclude='node_modules/' \
             --exclude='.git/' \
-            -e "ssh -i $HOME/.ssh/deploy_key -p $DEPLOY_PORT" \
+            -e "ssh -o BatchMode=yes -o IdentitiesOnly=yes -i $HOME/.ssh/deploy_key -p $DEPLOY_PORT" \
             ./ "$DEPLOY_USER@$DEPLOY_HOST:${DEPLOY_PATH%/}/"
 
       - name: Finish deployment
@@ -76,7 +87,7 @@ jobs:
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
         run: |
           set -eu
-          ssh -i "$HOME/.ssh/deploy_key" -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" <<EOF
+          ssh -o BatchMode=yes -o IdentitiesOnly=yes -i "$HOME/.ssh/deploy_key" -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" <<EOF
           set -eu
           cd -- "$DEPLOY_PATH"
           composer install --no-dev --no-progress --prefer-dist --optimize-autoloader --no-interaction
