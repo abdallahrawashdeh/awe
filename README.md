@@ -59,3 +59,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Deployment
+
+Pushes to `main` run `.github/workflows/deploy.yml`. The workflow builds the Vite assets, uploads the application over SSH, and runs the Laravel deployment commands on the server.
+
+Configure these GitHub repository secrets before using it:
+
+- `DEPLOY_HOST` - deployment server hostname
+- `DEPLOY_USER` - SSH user
+- `DEPLOY_PATH` - existing Laravel application directory on the server
+- `DEPLOY_SSH_KEY` - private key authorized for `DEPLOY_USER`
+- `DEPLOY_KNOWN_HOSTS` - output of `ssh-keyscan -H <host>`
+- `DEPLOY_PORT` - optional SSH port; defaults to `22`
+
+The server must have PHP 8.2+, Composer, and an existing production `.env` file. The deployment preserves `.env`, `storage/`, `vendor/`, and `node_modules/` on the server.
