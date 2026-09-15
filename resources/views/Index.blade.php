@@ -88,7 +88,7 @@
       <i class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180" id="btnIcon"></i>
       Read More
     </span>
-    <span class="relative w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px] transition-all duration-300 group-hover:bg-white/30">
+    <span class="relative w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-[10px] transition-all duration-300 group-hover:bg-white/30">
       <i class="fas fa-arrow-right"></i>
     </span>
   </button>
@@ -398,7 +398,7 @@
                     </div>
 
                     <!-- Expertise Tags -->
-                    <div class="mb-10">
+                    {{-- <div class="mb-10">
                         <p class="text-gray-700 font-semibold mb-3">Core Expertise:</p>
                         <div class="flex flex-wrap gap-3">
                             @php
@@ -421,7 +421,7 @@
                                 <span class="px-4 py-2 bg-[#e8bb5b]/10 text-[#b89430] rounded-full text-sm font-medium">Digital Transformation</span>
                             @endif
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- CTA Button -->
                     <div class="pt-6 border-t border-gray-200">
@@ -1067,21 +1067,21 @@
       <div class="flex justify-center h-12 sm:h-16 items-center space-x-1 sm:space-x-2">
         <button
           onclick="showPage('page1')"
-          class="relative overflow-hidden bg-white/10 hover:bg-white/20 text-white font-medium py-1 px-3 sm:py-2 sm:px-6 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40 group text-xs sm:text-base"
+          class="relative overflow-hidden bg-white/10 hover:bg-white/15 text-white font-medium py-1 px-3 sm:py-2 sm:px-6 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40 group text-xs sm:text-base"
         >
           <span class="relative z-10">OUR VISION</span>
           <span class="absolute inset-0 bg-gradient-to-r from-[#e9bc64] to-[#fabc40] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
         </button>
         <button
           onclick="showPage('page2')"
-          class="relative overflow-hidden bg-white/10 hover:bg-white/20 text-white font-medium py-1 px-3 sm:py-2 sm:px-6 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40 group text-xs sm:text-base"
+          class="relative overflow-hidden bg-white/10 hover:bg-white/15 text-white font-medium py-1 px-3 sm:py-2 sm:px-6 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40 group text-xs sm:text-base"
         >
           <span class="relative z-10">OUR MISSION</span>
           <span class="absolute inset-0 bg-gradient-to-r from-[#e9bc64] to-[#fabc40] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
         </button>
         <button
           onclick="showPage('page3')"
-          class="relative overflow-hidden bg-white/10 hover:bg-white/20 text-white font-medium py-1 px-3 sm:py-2 sm:px-6 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40 group text-xs sm:text-base"
+          class="relative overflow-hidden bg-white/10 hover:bg-white/15 text-white font-medium py-1 px-3 sm:py-2 sm:px-6 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40 group text-xs sm:text-base"
         >
           <span class="relative z-10">OUR VALUES</span>
           <span class="absolute inset-0 bg-gradient-to-r from-[#e9bc64] to-[#fabc40] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
@@ -1092,33 +1092,22 @@
 
   <!-- Page Content -->
   <div id="page1" class="hidden w-full max-w-4xl">
-    <div class="backdrop-blur-lg bg-white/20 p-4 sm:p-8 rounded-3xl h-[550px] sm:h-[550px] shadow-2xl border border-white/30 text-center transition-all duration-500 transform hover:scale-[1.01]">
-      <h1 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white drop-shadow-md">OUR VISION</h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-12">
-        <div class="bg-white/10 p-4 sm:p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-          <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🏗️</div>
-          <h3 class="text-sm sm:text-base font-semibold text-white">Our engineering firm aspires to establish itself as a
-prominent player in the market, providing innovative
-and high-quality engineering solutions. We aim to
-become a leading engineering firm known for our
-commitment to excellence, reliability, and customer
-satisfaction. </h3>
-        </div>
-        <div class="bg-white/10 p-4 sm:p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-          <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🧠</div>
-          <h3 class="text-sm sm:text-base font-semibold text-white">By leveraging our expertise across all engineering
-disciplines, we seek to consistently deliver exceptional
-results and build lasting relationships with our clients.
-Our vision is to be at the forefront of driving
-technological advancements and setting new industry
-standards.</h3>
-        </div>
-      </div>
+    <div class="backdrop-blur-lg bg-white/15 p-4 sm:p-8 rounded-3xl h-[550px] sm:h-[550px] shadow-2xl border border-white/30 text-center transition-all duration-500 transform hover:scale-[1.01]">
+  <h1 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white drop-shadow-md">OUR VISION</h1>
+
+  <div class="grid grid-cols-1 gap-4 sm:gap-6 mt-6 sm:mt-12">
+    <div class="w-full bg-white/10 p-4 sm:p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
+      <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🏗️</div>
+      <p class="text-sm sm:text-base font-semibold text-white leading-relaxed max-w-3xl mx-auto">
+        Our engineering firm aspires to establish itself as a prominent player in the market, providing innovative and high-quality engineering solutions. We aim to become a leading engineering firm known for our commitment to excellence, reliability, and customer satisfaction. By leveraging our expertise across all engineering disciplines, we seek to consistently deliver exceptional results and build lasting relationships with our clients. Our vision is to be at the forefront of driving technological advancements and setting new industry standards.
+      </p>
     </div>
+  </div>
+</div>
   </div>
 
 <div id="page2" class="hidden w-full max-w-4xl">
-    <div class="backdrop-blur-lg bg-white/20 p-4 sm:p-8 rounded-3xl h-[550px] sm:h-[550px] shadow-2xl border border-white/30 text-center transition-all duration-500 transform hover:scale-[1.01]">
+    <div class="backdrop-blur-lg bg-white/15 p-4 sm:p-8 rounded-3xl h-[550px] sm:h-[550px] shadow-2xl border border-white/30 text-center transition-all duration-500 transform hover:scale-[1.01]">
     <h1 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white drop-shadow-md">OUR MISSION</h1>
 
     <div class="flex flex-col sm:flex-row justify-center items-stretch gap-6 sm:gap-8 mt-6 sm:mt-12">
@@ -1126,13 +1115,7 @@ standards.</h3>
       <div class="flex flex-col items-center">
 
         <div class="bg-white/10 p-4 rounded-xl border border-white/20 flex-1 w-full">
-          <h3 class="font-semibold text-white mb-2">Innovation</h3>
-          <p class="text-white/90 text-sm sm:text-base">Our primary goal is to deliver exceptional engineering services to our esteemed clients,
-            ensuring the highest standards of quality, efficiency,
-            and innovation. We are committed to contributing to the success and growth of our clients by
-            providing tailored solutions that meet their specific needs. Through the consistent delivery of
-             high-quality products and services, we strive to exceed expectations, foster long-term partnerships,
-              and maintain a reputation for excellence in the engineering industry.</p>
+          <p class="text-white/90 text-sm sm:text-base">To provide the best engineering services to our client and contribute by delivering high-quality products.</p>
         </div>
       </div>
 
@@ -1146,55 +1129,83 @@ standards.</h3>
     </div>
   </div>
 </div>
-<div id="page3" class="hidden w-full max-w-4xl">
-  <div class="backdrop-blur-lg bg-white/20 p-4 sm:p-8 rounded-3xl h-[550px] sm:h-[550px] shadow-2xl border border-white/30 text-center transition-all duration-500 transform hover:scale-[1.01]">
+<div id="page3" class="hidden w-full max-w-6xl">
+  <div class="backdrop-blur-lg bg-white/15 p-4 sm:p-8 rounded-3xl shadow-2xl border border-white/30 text-center transition-all duration-500 transform hover:scale-[1.01]">
     {{-- <h1 class="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white drop-shadow-md">OUR VALUES</h1> --}}
 
-<div class="grid grid-cols-1 h-[490px] sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto mt-2 sm:mt-0  overflow-auto sm:overflow-visible">
-      <!-- Value 1 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto mt-2 sm:mt-0 max-h-[70vh] overflow-y-auto sm:max-h-none sm:overflow-visible">
+
+      <!-- Excellence -->
       <div class="relative">
         <div class="absolute -inset-1 bg-gradient-to-r rounded-lg blur opacity-75 animate-pulse"></div>
-        <div class="relative bg-white/20 rounded-lg px-4 py-3 sm:px-7 sm:py-5 border border-white/30 h-full">
-          <h3 class="text-lg sm:text-xl font-semibold text-white">ENVIRONMENTAL STEWARDSHIP</h3>
-          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">We recognize our responsibility to minimize
-the environmental impact of our work. Through sustainable practices, we aim
-to contribute positively to the welfare of the planet and future generations</p>
+        <div class="relative bg-white/15 rounded-lg px-4 py-3 sm:px-6 sm:py-5 border border-white/30 h-full">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">EXCELLENCE</h3>
+          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">We are committed to upholding the highest standards of quality in our work, striving for precision and continuous improvement in all aspects of our engineering services.</p>
         </div>
       </div>
 
-            <div class="relative">
-        <div class="absolute -inset-1 bg-gradient-to-r  rounded-lg blur opacity-75 animate-pulse"></div>
-        <div class="relative bg-white/20 rounded-lg px-4 py-3 sm:px-7 sm:py-5 border border-white/30 h-full">
+      <!-- Innovation -->
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r rounded-lg blur opacity-75 animate-pulse"></div>
+        <div class="relative bg-white/15 rounded-lg px-4 py-3 sm:px-6 sm:py-5 border border-white/30 h-full">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">INNOVATION</h3>
+          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">Embracing creativity and forward thinking, we seek out innovative solutions and technologies to address complex engineering challenges, driving progress and pushing boundaries.</p>
+        </div>
+      </div>
+
+      <!-- Integrity -->
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r rounded-lg blur opacity-75 animate-pulse"></div>
+        <div class="relative bg-white/15 rounded-lg px-4 py-3 sm:px-6 sm:py-5 border border-white/30 h-full">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">INTEGRITY</h3>
+          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">We conduct our business with honesty, transparency, and a strong ethical framework. Upholding moral and professional standards is fundamental to our identity as an engineering office.</p>
+        </div>
+      </div>
+
+      <!-- Client Focus -->
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r rounded-lg blur opacity-75 animate-pulse"></div>
+        <div class="relative bg-white/15 rounded-lg px-4 py-3 sm:px-6 sm:py-5 border border-white/30 h-full">
           <h3 class="text-lg sm:text-xl font-semibold text-white">CLIENT FOCUS</h3>
-          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">: Our clients' satisfaction is paramount. We are dedicated to understanding and meeting their
-needs, fostering strong relationships, and delivering valuable, tailored solutions.</p>
+          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">Our clients' satisfaction is paramount. We are dedicated to understanding and meeting their needs, fostering strong relationships, and delivering valuable, tailored solutions.</p>
         </div>
       </div>
 
-            <div class="relative">
-        <div class="absolute -inset-1 bg-gradient-to-r rounded-lg blur opacity-75 animate-pulse"></div>
-        <div class="relative bg-white/20 rounded-lg px-4 py-3 sm:px-7 sm:py-5 border border-white/30 h-full">
-          <h3 class="text-lg sm:text-xl font-semibold text-white">PROFESSIONALISM</h3>
-          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">We exemplify professionalism in all our interactions, from
-client engagement to internal operations, demonstrating respect,
-competence, and a commitment to excellence.</p>
-        </div>
-      </div>
-
-      <!-- Value 2 -->
+      <!-- Collaboration -->
       <div class="relative">
         <div class="absolute -inset-1 bg-gradient-to-r rounded-lg blur opacity-75 animate-pulse"></div>
-        <div class="relative bg-white/20 rounded-lg px-4 py-3 sm:px-7 sm:py-5 border border-white/30 h-full">
-          <h3 class="text-lg sm:text-xl font-semibold text-white">ADAPTABILITY</h3>
-          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">We embrace change and technological advancement, staying
-agile and responsive to emerging trends and the needs of a dynamic field</p>
+        <div class="relative bg-white/15 rounded-lg px-4 py-3 sm:px-6 sm:py-5 border border-white/30 h-full">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">COLLABORATION</h3>
+          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">We foster a culture of teamwork and collaboration, where diverse perspectives and expertise converge to create robust, integrated solutions for our clients' projects.</p>
         </div>
       </div>
 
-      <!-- Value 3 -->
+      <!-- Environmental Stewardship -->
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r rounded-lg blur opacity-75 animate-pulse"></div>
+        <div class="relative bg-white/15 rounded-lg px-4 py-3 sm:px-6 sm:py-5 border border-white/30 h-full">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">ENVIRONMENTAL STEWARDSHIP</h3>
+          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">We recognize our responsibility to minimize the environmental impact of our work. Through sustainable practices, we aim to contribute positively to the welfare of the planet and future generations.</p>
+        </div>
+      </div>
 
+      <!-- Adaptability -->
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r rounded-lg blur opacity-75 animate-pulse"></div>
+        <div class="relative bg-white/15 rounded-lg px-4 py-3 sm:px-6 sm:py-5 border border-white/30 h-full">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">ADAPTABILITY</h3>
+          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">We embrace change and technological advancement, staying agile and responsive to emerging trends and the needs of a dynamic field.</p>
+        </div>
+      </div>
 
-      <!-- Value 4 -->
+      <!-- Professionalism -->
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r rounded-lg blur opacity-75 animate-pulse"></div>
+        <div class="relative bg-white/15 rounded-lg px-4 py-3 sm:px-6 sm:py-5 border border-white/30 h-full">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">PROFESSIONALISM</h3>
+          <p class="mt-1 sm:mt-2 text-sm sm:text-base text-white/80">We exemplify professionalism in all our interactions, from client engagement to internal operations, demonstrating respect, competence, and a commitment to excellence.</p>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -1245,6 +1256,8 @@ agile and responsive to emerging trends and the needs of a dynamic field</p>
     animation: fadeIn 0.5s ease-out forwards;
   }
 </style>
+
+
 
 
 
@@ -1592,17 +1605,17 @@ agile and responsive to emerging trends and the needs of a dynamic field</p>
                             </h4>
 
                             <!-- Description -->
-                            <p class="service-description">
+                            {{-- <p class="service-description">
                                 {{ $service->description }}
-                            </p>
+                            </p> --}}
 
                             <!-- Link (appears on hover) -->
-                            <a href="#" class="service-link">
+                            {{-- <a href="#" class="service-link">
                                 Learn More
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 @endforeach
@@ -1610,7 +1623,7 @@ agile and responsive to emerging trends and the needs of a dynamic field</p>
         </div>
 
         <!-- View All Button -->
-        <div class="mt-14 flex justify-center">
+        {{-- <div class="mt-14 flex justify-center">
             <a href="/allservices" class="view-all-services relative">
                 <span class="btn-shimmer"></span>
                 View All Services
@@ -1618,7 +1631,7 @@ agile and responsive to emerging trends and the needs of a dynamic field</p>
                     <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
             </a>
-        </div>
+        </div> --}}
 
     </div>
 </section>
@@ -1768,7 +1781,7 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
                                             @foreach($images as $index => $image)
                                                 <button
                                                     onclick="goToImage({{ $projectIndex }}, {{ $index }})"
-                                                    class="w-2 h-2 rounded-full transition-all duration-300 dot-indicator {{ $index === 0 ? 'bg-[#e9bc64] w-4' : 'bg-white/50 hover:bg-white/80' }}"
+                                                    class="w-2 h-2 rounded-full transition-all duration-300 dot-indicator {{ $index === 0 ? 'bg-[#e9bc64] w-4' : 'bg-white/150 hover:bg-white/80' }}"
                                                     data-project="{{ $projectIndex }}"
                                                     data-index="{{ $index }}"
                                                     aria-label="Go to image {{ $index + 1 }}"
@@ -1867,7 +1880,7 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
         @else
             <!-- No Projects State -->
             <div class="text-center py-16">
-                <div class="inline-block p-6 bg-white/5 backdrop-blur-sm rounded-full mb-6">
+                <div class="inline-block p-6 bg-white/15 backdrop-blur-sm rounded-full mb-6">
                     <svg class="w-16 h-16 text-[#e9bc64]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                     </svg>
@@ -2061,7 +2074,7 @@ function updateImage(projectIndex) {
         if (index === currentIndex) {
             dot.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-[#e9bc64] w-4 dot-indicator';
         } else {
-            dot.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-white/50 hover:bg-white/80 dot-indicator';
+            dot.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-white/150 hover:bg-white/80 dot-indicator';
         }
     });
 }
