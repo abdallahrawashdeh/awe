@@ -1822,19 +1822,19 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
                                 @endif
                             </div>
 
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-[#e9bc64] transition-colors duration-300">
+                            <h3 class="text-lg text-black sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-[#e9bc64] transition-colors duration-300">
                                 {{ $project->title }}
                             </h3>
 
                             <!-- Content with Read More functionality (Plain JavaScript) -->
-                            <div class="text-white/80 text-sm leading-relaxed mb-3">
+                            <div class="text-white/80 text-sm leading-relaxed mb-3  text-black " >
                                 @if($isLongContent)
                                     <div class="project-content-wrapper" id="wrapper-{{ $contentId }}">
                                         <p class="project-content-short" id="short-{{ $contentId }}">
                                             {{ $shortContent }}
                                             <span class="text-[#e9bc64]">...</span>
                                         </p>
-                                        <p class="project-content-full hidden" id="full-{{ $contentId }}">
+                                        <p class="project-content-full  text-black  hidden" id="full-{{ $contentId }}">
                                             {{ $fullContent }}
                                         </p>
                                         <button
