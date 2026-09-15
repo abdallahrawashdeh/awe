@@ -56,7 +56,7 @@
       </h3>
     </div>
     <span class="ml-auto text-xs font-semibold uppercase tracking-wider bg-[#e9bc64]/10 text-[#b8963c] px-4 py-1.5 rounded-full border border-[#e9bc64]/20 shadow-sm backdrop-blur-sm">
-      <i class="fas fa-star mr-1.5 text-[#e9bc64]"></i> Since 2020
+      <i class="fas fa-star mr-1.5 text-[#e9bc64]"></i> Since 2016
     </span>
   </div>
 
@@ -67,12 +67,17 @@
 
   <!-- Description with smooth expand/collapse and modern typography -->
   <p id="description" class="relative z-10 text-gray-700 leading-relaxed text-base md:text-lg overflow-hidden transition-[max-height,opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] max-h-20 [&.expanded]:max-h-[1200px] [&.expanded]:opacity-100 [&.expanded]:translate-y-0 opacity-100 translate-y-0">
-    <span class="font-medium text-[#e9bc64]">Welcome to Advanced Works Engineering Company</span>, where we are dedicated to providing comprehensive engineering services to our clients, including property developers, project owners, and contractors. Our company was established with the mission of advancing engineering practices and enhancing quality standards in the engineering sector.
+    <span class="font-medium text-[#e9bc64]">Welcome to Advanced Works Engineering Company</span>, Established in2016,our engineering firm is a comprehensive provider of all engineering disciplines.
+    
+    With a dedicated team of professionals, we offer a wide range of engineering services to meet the needs of our clients.    
+    Our commitment to excellence and innovation sets us apart, and we take pride in delivering high-quality solutions across various engineering sectors.
+
     <br><br>
-    We leverage our extensive experience and knowledge to serve our clients, with a carefully selected team of highly skilled engineers aligned with our vision to position our company among the top-tier firms in the field. We strive for excellence and innovation in every project we undertake, ensuring our clients' success and achieving their goals efficiently and professionally.
-    <br><br>
-    In summary, we are your ideal partner for all engineering service needs, and we are committed to delivering the best.
+
+ Advanced Works Design Company where we are dedicated to providing comprehensive engineering services to our clients, including property developers, project owners, and contractors. Our company was established with the mission of advancing engineering practices and enhancing quality standards in the engineering sector. We leverage our extensive experience and knowledge to serve our clients, with a carefully selected team of highly skilled engineers aligned with our vision to position our company among the top-tier firms in the field. We strive for excellence and innovation in every project we undertake, ensuring our clients' success and achieving their goals efficiently and professionally. In summary, we are your ideal partner for all engineering service needs, and we are committed to delivering the best
+
   </p>
+
 
   <!-- Modern Read More / Read Less button with glow & micro-interactions -->
   <button id="toggleBtn" onclick="toggleText()" class="relative z-10 mt-8 group flex items-center gap-2 px-7 py-3.5 bg-[#e9bc64] text-white font-semibold rounded-xl shadow-lg shadow-[#e9bc64]/30 hover:shadow-[#e9bc64]/50 transition-all duration-300 hover:scale-[1.02] active:scale-[0.97] border border-[#e9bc64]/40 overflow-hidden">

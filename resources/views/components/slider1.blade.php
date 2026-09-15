@@ -13,7 +13,7 @@
     <div class="absolute inset-0 flex items-center justify-center px-4 z-30">
       <h2 id="delayed-text" class="text-white text-3xl md:text-5xl font-bold text-center"
           style="opacity: 0; visibility: hidden; transition: opacity 0.7s ease-out;">
-        Welcome To Advanced Works Design testtest
+Welcome to Advanced Works Design Company 
       </h2>
     </div>
   </div>
