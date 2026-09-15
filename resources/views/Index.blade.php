@@ -1690,10 +1690,7 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
 
 <section class="relative py-12 px-4 sm:px-6 lg:px-8" id="Our_Projects">
     <!-- Background Image with Overlay -->
-    <div class="absolute inset-0 overflow-hidden">
-        <img src="{{ asset('images/Background.jpg') }}" alt="Background" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-    </div>
+
 
     <!-- Decorative Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
