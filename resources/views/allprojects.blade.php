@@ -654,9 +654,9 @@
                         @endif
 
                         <!-- Year Badge -->
-                        <span class="badge-year">
+                        {{-- <span class="badge-year">
                             {{ $item->year }}
-                        </span>
+                        </span> --}}
                     </div>
 
                     <!-- Content Section -->

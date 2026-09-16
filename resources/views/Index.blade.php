@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>AW eng</title>
+    <title>Advanced Works Design</title>
+
+    <meta property="og:title" content="Advanced Works Design">
+    <meta property="og:description" content="Engineering, Architecture & Design Solutions">
+
 
 
     <!-- Favicon -->
@@ -1798,9 +1802,9 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
                             @endif
 
                             <!-- Year Badge -->
-                            <div class="absolute bottom-3 left-3 bg-[#e9bc64] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
+                            {{-- <div class="absolute bottom-3 left-3 bg-[#e9bc64] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
                                 {{ $project->year }}
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- Content Section -->
