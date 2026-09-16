@@ -305,7 +305,7 @@
                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                                 </svg>
-                                <span>adel@awcompany.com</span>
+                                <span>info@aw-engineering.net</span>
                             </div>
                             <a href="#" class="group relative inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#e8bb5b] to-[#d4a84c] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 overflow-hidden">
                                 <span class="relative z-10">Schedule a Meeting</span>
@@ -450,15 +450,15 @@
                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                                 </svg>
-                                <span>{{ $ceoInfo->ceo_email ?? 'adel@awcompany.com' }}</span>
+                                <span>{{ $ceoInfo->ceo_email ?? 'info@aw-engineering.net' }}</span>
                             </div>
-                            <a href="#" class="group relative inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#e8bb5b] to-[#d4a84c] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 overflow-hidden">
+                            {{-- <a href="#" class="group relative inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#e8bb5b] to-[#d4a84c] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 overflow-hidden">
                                 <span class="relative z-10">Schedule a Meeting</span>
                                 <div class="absolute inset-0 bg-gradient-to-r from-[#d4a84c] to-[#e8bb5b] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 <svg class="w-5 h-5 ml-2 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                                 </svg>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>
