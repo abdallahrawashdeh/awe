@@ -43,7 +43,7 @@ class ChatbotController extends Controller
         }
         elseif (str_contains($lowerQuestion, 'location') || str_contains($lowerQuestion, 'address') || str_contains($lowerQuestion, 'where')) {
             return response()->json([
-                'message' => "📍 **AW Engineering** is headquartered in **Dubai, UAE**, with additional offices in **Abu Dhabi** and **Sharjah**. Our strategic locations allow us to serve clients across the Middle East efficiently."
+                'message' => "📍In Abu Nusair - Amman - Jordan."
             ]);
         }
         elseif (str_contains($lowerQuestion, 'service') || str_contains($lowerQuestion, 'what do you do') || str_contains($lowerQuestion, 'offer')) {

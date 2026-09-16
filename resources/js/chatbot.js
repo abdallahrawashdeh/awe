@@ -8,11 +8,8 @@ window.toggleChat = function () {
 
     if (!popup.classList.contains("hidden")) {
         button.classList.add("hidden");
-        // Auto-focus input when opening chat
-        setTimeout(() => {
-            const input = document.getElementById("chatInput");
-            if (input) input.focus();
-        }, 100);
+        // Text input is disabled for now (options-only mode),
+        // so there is nothing to auto-focus on open.
     }
 };
 
@@ -38,32 +35,22 @@ window.selectOption = function (btn) {
     sendToServer(text);
 };
 
-// Send from input
+/*
+ * ===== Free-text input: DISABLED =====
+ * The chat is options-only for now. sendMessage/handleKeyPress are kept
+ * as no-ops (rather than deleted) so that if any leftover HTML still
+ * references them (an input's onkeypress, a send button's onclick),
+ * nothing throws — they just do nothing.
+ *
+ * To fully remove free-text entry, also hide/remove the <input id="chatInput">
+ * and its send button in the chat popup's HTML.
+ */
 window.sendMessage = function () {
-    const input = document.getElementById("chatInput");
-    if (!input) {
-        console.error('Chat input not found');
-        return;
-    }
-
-    const message = input.value.trim();
-    console.log('Sending message:', message);
-
-    if (message === "") return;
-
-    addUserMessage(message);
-    sendToServer(message);
-
-    input.value = "";
-    input.focus();
+    console.log('Free-text messaging is currently disabled — please use the option buttons.');
 };
 
-// Handle Enter key in input
 function handleKeyPress(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        sendMessage();
-    }
+    // No-op: free-text input is disabled.
 }
 
 // Add user message to chat UI
@@ -289,7 +276,7 @@ function hideTypingIndicator() {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Chatbot initialized successfully');
+    console.log('Chatbot initialized successfully (options-only mode)');
     console.log('Current base URL:', window.location.origin);
 
     // Debug: Check for CSRF token

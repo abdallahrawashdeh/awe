@@ -2347,7 +2347,7 @@ function updateImage(projectIndex) {
                 <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#e9bc64] font-bold text-lg">
                     🤖
                 </div>
-                <h2 class="text-white font-semibold text-lg">Chat Assistant</h2>
+                <h2 class="text-white font-semibold text-lg">AWD Assistant</h2>
             </div>
             <button onclick="closeChat()" class="text-white text-2xl font-bold hover:text-gray-200">×</button>
         </div>
@@ -2355,7 +2355,7 @@ function updateImage(projectIndex) {
         <!-- Chat Body -->
         <div id="chatBody" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50 min-h-0">
             <div class="bg-gray-100 p-3 rounded-xl max-w-[85%] sm:max-w-[80%] text-sm">
-                👋 Hello! I'm your AW Engineering Assistant. Ask me something below.
+                👋 Hello! I'm your AWD Engineering Assistant. Ask me something below.
             </div>
 
             <!-- Static Response Buttons -->
@@ -2368,13 +2368,7 @@ function updateImage(projectIndex) {
         </div>
 
         <!-- Input -->
-        <div class="flex items-center p-3 sm:p-4 border-t bg-gray-100 shrink-0">
-            <input id="chatInput" type="text" placeholder="Type a message..."
-                   class="flex-1 min-w-0 rounded-full border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#e9bc64]" />
-            <button onclick="sendMessage()" class="ml-2 sm:ml-3 bg-[#e9bc64] hover:bg-[#f5c15a] text-white px-4 sm:px-5 py-2 rounded-full shadow-md transition text-sm sm:text-base whitespace-nowrap">
-                Send
-            </button>
-        </div>
+      
     </div>
 
     <!-- Floating Button -->
