@@ -231,7 +231,7 @@ class ChatbotController extends Controller
                 // Fallback message if no careers found in database
                 \Log::info('No careers found in database, using fallback message');
                 return response()->json([
-                    'message' => "💼 **Career Opportunities at AW Engineering**\n\nWe're always looking for talented engineering professionals to join our growing team! While we don't have specific openings listed at the moment, we regularly hire for:\n\n• **Civil Engineers**\n• **Mechanical Engineers**\n• **Electrical Engineers**\n• **Project Managers**\n• **CAD Technicians**\n• **Site Supervisors**\n• **Structural Engineers**\n\n📞 **How to apply:**\nSend your CV to **careers@awengineering.com** or visit our office to discuss future opportunities!"
+                    'message' => "💼 **Career Opportunities at AW Engineering**\n\nWe're always looking for talented engineering professionals to join our growing team! While we don't have specific openings listed at the moment, we regularly hire for:\n\n• **Civil Engineers**\n• **Mechanical Engineers**\n• **Electrical Engineers**\n• **Project Managers**\n• **CAD Technicians**\n• **Site Supervisors**\n• **Structural Engineers**\n\n📞 **How to apply:**\nSend your CV to **info@aw-engineering.net** or visit our office to discuss future opportunities!"
                 ]);
             }
 
