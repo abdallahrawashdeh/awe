@@ -6,18 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Advanced Works Design</title>
+    <!-- Page Title (shown as the blue clickable link in Google search results) -->
+    <title>Advanced Works Design | Engineering, Architecture & Design Solutions</title>
 
-    <meta property="og:title" content="Advanced Works Design">
-    <meta property="og:description" content="Engineering, Architecture & Design Solutions">
+    <!-- Meta Description (shown as the gray description text under the title in search results) -->
+    <meta name="description" content="Advanced Works Design provides engineering, architecture, and design solutions that help clients plan, build, and deliver projects with precision, creativity, and reliability.">
 
+    <!-- Canonical URL (tells Google the official URL for this page) -->
+    <link rel="canonical" href="{{ url()->current() }}">
 
+    <!-- Open Graph (for Facebook, LinkedIn, WhatsApp link previews) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="Advanced Works Design | Engineering, Architecture & Design Solutions">
+    <meta property="og:description" content="Advanced Works Design provides engineering, architecture, and design solutions that help clients plan, build, and deliver projects with precision, creativity, and reliability.">
+    <meta property="og:image" content="{{ asset('images/logoAWD.png') }}">
+
+    <!-- Twitter Card (for X/Twitter link previews) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Advanced Works Design | Engineering, Architecture & Design Solutions">
+    <meta name="twitter:description" content="Advanced Works Design provides engineering, architecture, and design solutions that help clients plan, build, and deliver projects with precision, creativity, and reliability.">
+    <meta name="twitter:image" content="{{ asset('images/logoAWD.png') }}">
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/logoAWD.png') }}" type="image/png">
 
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-@vite(['resources/css/app.css', 'resources/js/chatbot.js'])
+        @vite(['resources/css/app.css', 'resources/js/chatbot.js'])
     @endif
 
     <style>
