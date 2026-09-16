@@ -1704,7 +1704,7 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
                 <span class="inline-block px-4 py-1.5 bg-[#e9bc64]/20 backdrop-blur-sm text-[#e9bc64] text-xs sm:text-sm font-semibold rounded-full mb-3 tracking-wider uppercase border border-[#e9bc64]/20">
                     Latest Work
                 </span>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 text-[#1f283a]">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-black">
                     Our Newest <span class="text-[#e9bc64]">Projects</span>
                 </h2>
                 <div class="w-20 h-1 bg-[#e9bc64] mx-auto rounded-full"></div>
@@ -1822,7 +1822,7 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
                                 @endif
                             </div>
 
-                            <h3 class="text-lg text-black sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-[#e9bc64] transition-colors duration-300">
+                            <h3 class="text-lg text-black sm:text-xl font-boldmb-2 line-clamp-2 group-hover:text-[#e9bc64] transition-colors duration-300">
                                 {{ $project->title }}
                             </h3>
 
