@@ -229,7 +229,7 @@
             <!-- Left: Logo / Graphic with modern floating effect -->
             <div class="md:w-2/5 flex items-center justify-center">
                 <div class="w-full max-w-[240px] md:max-w-[280px] logo-float">
-                    <img src="{{ asset('images/awdlogo.png') }}"
+                    <img src="{{ asset('images/logoAWD.png') }}"
                          alt="AW Engineering"
                          class="w-full h-auto object-contain drop-shadow-xl"
                          style="filter: drop-shadow(0 15px 25px rgba(0,0,0,0.08));">

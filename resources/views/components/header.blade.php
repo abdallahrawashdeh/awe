@@ -2,7 +2,7 @@
   <div class="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-4 md:px-6">
     <!-- Logo -->
     <a href="/" class="flex items-center space-x-2">
-      <img src="{{ asset('images/awdlogo.png') }}" alt="Logo" class="h-10 w-auto" />
+      <img src="{{ asset('images/logoAWD.png') }}" alt="Logo" class="h-10 w-auto" />
     </a>
 
     <!-- Hamburger (Mobile) -->

@@ -24,11 +24,16 @@ window.closeChat = function () {
     if (button) button.classList.remove("hidden");
 };
 
+// Keep track of which option button (if any) was just clicked,
+// so it can be removed from the list once the bot responds
+let lastSelectedButton = null;
+
 // Select option (buttons at top)
 window.selectOption = function (btn) {
     if (!btn) return;
     const text = btn.innerText;
     console.log('Selected option:', text);
+    lastSelectedButton = btn;
     addUserMessage(text);
     sendToServer(text);
 };
@@ -141,6 +146,33 @@ function getCsrfToken() {
     return null;
 }
 
+// Show the static option buttons again, moved to sit directly
+// under the most recent message (e.g. after a bot reply).
+// Removes the option the user just picked (if any) so it isn't offered again.
+function showOptionButtons() {
+    const optionButtons = document.getElementById('optionButtons');
+    const chatBody = document.getElementById("chatBody");
+    if (!optionButtons || !chatBody) return;
+
+    // Remove the button that was just selected, if applicable
+    if (lastSelectedButton) {
+        lastSelectedButton.remove();
+        lastSelectedButton = null;
+    }
+
+    // Only show the container if there are options left in it
+    const remainingButtons = optionButtons.querySelectorAll('button').length;
+    if (remainingButtons === 0) {
+        optionButtons.style.display = 'none';
+        return;
+    }
+
+    // Re-append (moves it, doesn't duplicate) so it's always last in the chat
+    chatBody.appendChild(optionButtons);
+    optionButtons.style.display = 'flex';
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
 // Send request to Laravel backend
 function sendToServer(question) {
     if (!question) return;
@@ -150,7 +182,7 @@ function sendToServer(question) {
     // Show typing indicator
     showTypingIndicator();
 
-    // Hide option buttons after user sends a message
+    // Hide option buttons while waiting for a response
     const optionButtons = document.getElementById('optionButtons');
     if (optionButtons) {
         optionButtons.style.display = 'none';
@@ -206,11 +238,16 @@ function sendToServer(question) {
         } else {
             throw new Error('Invalid response format');
         }
+        // Show the option buttons again once the bot has replied
+        showOptionButtons();
     })
     .catch(error => {
         console.error('Chatbot fetch error:', error);
         hideTypingIndicator();
         addBotMessage("❌ Error: " + error.message);
+        // Show the option buttons again even if the request failed,
+        // so the user isn't stuck with no way to continue
+        showOptionButtons();
     });
 }
 

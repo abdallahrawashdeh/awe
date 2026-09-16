@@ -10,7 +10,7 @@
 
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/awdlogo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/logoAWD.png') }}" type="image/png">
 
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
 @vite(['resources/css/app.css', 'resources/js/chatbot.js'])
@@ -1116,7 +1116,7 @@ $newestProjects = isset($projects) ? $projects->sortByDesc('year')->take(3) : co
             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
                 <div class="col-span-full mb-10 lg:col-span-2 lg:mb-0">
                     <a href="https://pagedone.io/"  class="flex justify-center lg:justify-start">
-                        <img src="{{ asset('images/awdlogo.png') }}" width="150" height="30" alt="">
+                        <img src="{{ asset('images/logoAWD.png') }}" width="150" height="30" alt="">
                     </a>
                     <p class="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-right">هل لديك أي استفسار؟</p>
 <!-- Contact Us Button -->

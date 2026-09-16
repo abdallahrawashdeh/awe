@@ -14,7 +14,7 @@
 
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/awdlogo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/logoAWD.png') }}" type="image/png">
 
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
 @vite(['resources/css/app.css', 'resources/js/chatbot.js'])

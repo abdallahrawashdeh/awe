@@ -9,7 +9,7 @@
     <!-- Logo -->
     <div class="flex items-center justify-center h-24 border-b border-gray-200 bg-white">
         <a href="{{ route('dashboard') }}" class="flex items-center border-b-4 transition-all duration-300">
-            <img src="{{ asset('images/awdlogo.png') }}"
+            <img src="{{ asset('images/logoAWD.png') }}"
                 alt="Logo"
                 class="transition-all duration-300 object-contain w-36">
         </a>
