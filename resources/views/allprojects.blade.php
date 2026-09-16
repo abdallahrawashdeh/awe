@@ -5,30 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Our Projects</title>
-</head>
-@if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-@endif
-<body>
 
-    <x-header />
+    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endif
 
-    <!-- Hero Section - Premium Design -->
-<div class="relative w-full h-[300px] overflow-hidden">
-    <img
-        src="{{ asset('images/projects.jpeg') }}"
-        alt="Career image"
-        class="absolute inset-0 w-full h-full object-cover object-center"
-    />
-
-    <div class="absolute inset-0 bg-black/50"></div>
-
-    <div class="absolute inset-0 flex items-center justify-center">
-        <h1 class="text-4xl font-bold text-white">
-            Our Projects
-        </h1>
-    </div>
-</div>
     <style>
         /* ===== Global Styles ===== */
         * {
@@ -40,62 +21,6 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f8fafc;
-        }
-
-        /* ===== Animations ===== */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -1000px 0; }
-            100% { background-position: 1000px 0; }
-        }
-
-        .projects-item {
-            animation: slideIn 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        .projects-item:nth-child(1) { animation-delay: 0.1s; }
-        .projects-item:nth-child(2) { animation-delay: 0.2s; }
-        .projects-item:nth-child(3) { animation-delay: 0.3s; }
-        .projects-item:nth-child(4) { animation-delay: 0.4s; }
-        .projects-item:nth-child(5) { animation-delay: 0.5s; }
-        .projects-item:nth-child(6) { animation-delay: 0.6s; }
-
-        .fade-slide-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-slide-right.is-visible {
-            opacity: 1;
-            transform: translateX(0);
         }
 
         /* ===== Stats Bar ===== */
@@ -145,7 +70,6 @@
             color: #4a5568;
             border: 2px solid #e2e8f0;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 500;
             font-size: 0.875rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
@@ -154,8 +78,6 @@
         .month-btn:hover {
             background: #f7fafc;
             border-color: #cbd5e0;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .month-btn.active {
@@ -163,13 +85,11 @@
             color: white;
             border-color: #e8bc61;
             box-shadow: 0 4px 15px rgba(232, 188, 97, 0.35);
-            transform: translateY(-2px);
         }
 
         .month-btn.active:hover {
             background: #d4a84a;
             border-color: #d4a84a;
-            box-shadow: 0 6px 20px rgba(232, 188, 97, 0.4);
         }
 
         /* ===== Project Cards ===== */
@@ -178,17 +98,10 @@
             border-radius: 1.25rem;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(0, 0, 0, 0.04);
             height: 100%;
             display: flex;
             flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-            border-color: rgba(232, 188, 97, 0.2);
         }
 
         /* ===== Image Carousel ===== */
@@ -210,11 +123,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .project-card:hover .carousel-slide {
-            transform: scale(1.05);
         }
 
         /* Carousel Navigation Arrows */
@@ -233,18 +141,11 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
             z-index: 10;
-        }
-
-        .project-image-wrapper:hover .carousel-arrow {
-            opacity: 1;
         }
 
         .carousel-arrow:hover {
             background: rgba(232, 188, 97, 0.9);
-            transform: translateY(-50%) scale(1.1);
         }
 
         .carousel-arrow-left {
@@ -278,7 +179,6 @@
             background: rgba(255, 255, 255, 0.5);
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
             padding: 0;
         }
 
@@ -312,36 +212,7 @@
             align-items: center;
             gap: 4px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
             z-index: 10;
-        }
-
-        .project-card:hover .badge-image-count {
-            background: rgba(232, 188, 97, 0.9);
-            transform: scale(1.05);
-        }
-
-        /* Year Badge */
-        .badge-year {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background: rgba(232, 188, 97, 0.95);
-            backdrop-filter: blur(8px);
-            color: white;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px rgba(232, 188, 97, 0.3);
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .project-card:hover .badge-year {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(232, 188, 97, 0.4);
         }
 
         /* No Image Placeholder */
@@ -412,7 +283,6 @@
         .project-title a {
             color: inherit;
             text-decoration: none;
-            transition: color 0.2s ease;
         }
 
         .project-title a:hover {
@@ -440,7 +310,6 @@
             font-weight: 600;
             font-size: 0.875rem;
             text-decoration: none;
-            transition: all 0.3s ease;
             padding: 0.5rem 0;
             border-bottom: 2px solid transparent;
             width: fit-content;
@@ -449,15 +318,6 @@
         .btn-view-details:hover {
             color: #d4a84a;
             border-bottom-color: #e8bc61;
-            gap: 0.75rem;
-        }
-
-        .btn-view-details svg {
-            transition: transform 0.3s ease;
-        }
-
-        .btn-view-details:hover svg {
-            transform: translateX(4px);
         }
 
         /* ===== No Results ===== */
@@ -488,13 +348,13 @@
 
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem !important;
-            }
-
             .stats-bar {
                 grid-template-columns: repeat(2, 1fr);
                 padding: 1rem;
+            }
+
+            .month-filter {
+                gap: 0.5rem;
             }
 
             .month-btn {
@@ -502,10 +362,7 @@
                 font-size: 0.75rem;
             }
 
-            .carousel-container {
-                height: 180px;
-            }
-
+            .carousel-container,
             .no-image-placeholder {
                 height: 180px;
             }
@@ -519,6 +376,10 @@
                 width: 14px;
                 height: 14px;
             }
+
+            .project-content-wrapper {
+                padding: 1.25rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -529,6 +390,19 @@
 
             .stat-item .stat-number {
                 font-size: 1.4rem;
+            }
+
+            .carousel-container,
+            .no-image-placeholder {
+                height: 200px;
+            }
+        }
+
+        /* Arrows/dots rely on :hover, which touch devices don't have.
+           Always show them on touch screens so the carousel is usable. */
+        @media (hover: none) {
+            .carousel-arrow {
+                opacity: 1;
             }
         }
 
@@ -550,14 +424,33 @@
             background: #d4a84a;
         }
     </style>
+</head>
+<body>
 
-    <section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 fade-slide-right" id="Latest_projects">
+    <x-header />
 
+    <!-- Hero Section -->
+    <div class="relative w-full h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden">
+        <img
+            src="{{ asset('images/projects.jpeg') }}"
+            alt="Career image"
+            class="absolute inset-0 w-full h-full object-cover object-center"
+        />
+
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <div class="absolute inset-0 flex items-center justify-center px-4">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center">
+                Our Projects
+            </h1>
+        </div>
+    </div>
+
+    <section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12" id="Latest_projects">
 
         <!-- Section Header -->
-        <div class="text-center mb-10 fade-slide-right">
-
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
                 Featured <span class="text-[#e8bc61]">Projects</span>
             </h2>
 
@@ -589,7 +482,7 @@
         </div>
 
         <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="projects-container">
             @foreach($projects as $projectIndex => $item)
             @php
                 $images = $item->images;
@@ -597,7 +490,6 @@
                 $imageUrls = $images->map(function($img) {
                     return asset('storage/' . $img->image_path);
                 })->toArray();
-                $imageJson = json_encode($imageUrls);
             @endphp
             <div class="projects-item" data-month="{{ $item->created_at->format('Y-m') }}">
                 <div class="project-card">
@@ -617,8 +509,8 @@
                                      <span class="carousel-counter" data-project="{{ $projectIndex }}">1/{{ $images->count() }}</span>
                                 </span>
 
-                                <!-- Left Arrow -->
                                 @if($images->count() > 1)
+                                <!-- Left Arrow -->
                                 <button class="carousel-arrow carousel-arrow-left" onclick="changeImage({{ $projectIndex }}, 'prev')" aria-label="Previous image">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -652,11 +544,6 @@
                                 <p>No images</p>
                             </div>
                         @endif
-
-                        <!-- Year Badge -->
-                        {{-- <span class="badge-year">
-                            {{ $item->year }}
-                        </span> --}}
                     </div>
 
                     <!-- Content Section -->
@@ -677,8 +564,6 @@
                         <div class="project-description">
                             {!! Str::limit(strip_tags($item->content), 1020) !!}
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -693,12 +578,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
- 
-
     <script>
     // ===== Image Carousel JavaScript =====
-    // Store all project images
     const projectImages = @json($projects->map(function($project) {
         return $project->images->map(function($img) {
             return asset('storage/' . $img->image_path);
@@ -707,7 +588,6 @@
 
     let currentIndices = {};
 
-    // Initialize current indices for each project
     @foreach($projects as $index => $project)
         currentIndices[{{ $index }}] = 0;
     @endforeach
@@ -740,22 +620,19 @@
         const currentIndex = currentIndices[projectIndex];
         const imageUrl = images[currentIndex];
 
-        // Update main image
-        const imgElement = document.querySelector(`.carousel-slide[data-project="${projectIndex}"]`);
+        const imgElement = document.querySelector('.carousel-slide[data-project="' + projectIndex + '"]');
         if (imgElement) {
             imgElement.src = imageUrl;
             imgElement.dataset.index = currentIndex;
         }
 
-        // Update counter
-        const counterElement = document.querySelector(`.carousel-counter[data-project="${projectIndex}"]`);
+        const counterElement = document.querySelector('.carousel-counter[data-project="' + projectIndex + '"]');
         if (counterElement) {
-            counterElement.textContent = `${currentIndex + 1}/${images.length}`;
+            counterElement.textContent = (currentIndex + 1) + '/' + images.length;
         }
 
-        // Update dot indicators
-        const dots = document.querySelectorAll(`.carousel-dots[data-project="${projectIndex}"] .carousel-dot`);
-        dots.forEach((dot, index) => {
+        const dots = document.querySelectorAll('.carousel-dots[data-project="' + projectIndex + '"] .carousel-dot');
+        dots.forEach(function (dot, index) {
             if (index === currentIndex) {
                 dot.classList.add('active');
             } else {
@@ -764,56 +641,32 @@
         });
     }
 
-    // ===== Month Filter =====
+    // ===== Month Filter (no transition/animation, instant show-hide) =====
     document.addEventListener('DOMContentLoaded', function () {
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-slide-right').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Month filter functionality
         const monthButtons = document.querySelectorAll('.month-btn');
         const projectItems = document.querySelectorAll('.projects-item');
         const noResults = document.getElementById('no-results');
         const projectsContainer = document.getElementById('projects-container');
 
-        monthButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Update active button
-                monthButtons.forEach(btn => btn.classList.remove('active'));
+        monthButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                monthButtons.forEach(function (btn) { btn.classList.remove('active'); });
                 this.classList.add('active');
 
                 const selectedMonth = this.dataset.month;
                 let hasResults = false;
 
-                // Filter project items with smooth transition
-                projectItems.forEach(item => {
+                projectItems.forEach(function (item) {
                     const itemMonth = item.dataset.month;
 
                     if (selectedMonth === 'all' || itemMonth === selectedMonth) {
                         item.style.display = 'block';
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, 50);
                         hasResults = true;
                     } else {
                         item.style.display = 'none';
                     }
                 });
 
-                // Show/hide no results message
                 if (hasResults) {
                     noResults.classList.add('hidden');
                     projectsContainer.classList.remove('hidden');
@@ -823,31 +676,10 @@
                 }
             });
         });
-
-        // Counter animation for stats
-        const statNumbers = document.querySelectorAll('.stat-number');
-        statNumbers.forEach(stat => {
-            const text = stat.textContent;
-            const number = parseInt(text);
-            if (!isNaN(number) && number > 0) {
-                let current = 0;
-                const increment = Math.ceil(number / 30);
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= number) {
-                        stat.textContent = number;
-                        clearInterval(timer);
-                    } else {
-                        stat.textContent = current;
-                    }
-                }, 30);
-            }
-        });
     });
     </script>
 
-        <x-newfooter />
-
+    <x-newfooter />
 
 </body>
 </html>
