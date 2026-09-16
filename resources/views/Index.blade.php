@@ -558,7 +558,6 @@
         @if(isset($lastUpdated) && $lastUpdated)
             <div class="text-center text-white/70 text-sm mt-4">
                 <i data-feather="clock" class="inline-block w-4 h-4 mr-1"></i>
-                Last updated: {{ $lastUpdated->updated_at->format('F d, Y H:i') }}
             </div>
         @endif
     </div>
