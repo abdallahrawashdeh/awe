@@ -4,9 +4,9 @@
             <!--Grid-->
             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
                 <div class="col-span-full mb-10 lg:col-span-2 lg:mb-0">
-                    <a href="https://pagedone.io/"  class="flex justify-center lg:justify-start">
-                        <img src="{{ asset('images/logoAWD.png') }}" width="150" height="30" alt="">
-                    </a>
+                    <a href="/" class="flex justify-center lg:justify-start">
+    <img src="{{ asset('images/logoAWD.png') }}" alt="AWD Logo" class="h-20 md:h-24 w-auto object-contain">
+</a>
                     <p class="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left">Have any query ?</p>
 <!-- Contact Us Button -->
 <a href="javascript:;" onclick="toggleContactForm()"

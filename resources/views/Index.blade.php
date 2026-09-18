@@ -2348,26 +2348,21 @@ function updateImage(projectIndex) {
                 </div>
                 <h2 class="text-white font-semibold text-lg">AWD Assistant</h2>
             </div>
-            <button onclick="closeChat()" class="text-white text-2xl font-bold hover:text-gray-200">×</button>
+            <button onclick="closeChat()" class="text-white text-2xl font-bold hover:text-gray-200" aria-label="Close chat">×</button>
         </div>
 
         <!-- Chat Body -->
         <div id="chatBody" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50 min-h-0">
             <div class="bg-gray-100 p-3 rounded-xl max-w-[85%] sm:max-w-[80%] text-sm">
-                👋 Hello! I'm your AWD Engineering Assistant. Ask me something below.
+                👋 Hello! I'm your AWD Engineering Assistant. Pick a topic below.
             </div>
 
-            <!-- Static Response Buttons -->
-            <div id="optionButtons" class="flex flex-col gap-2 mt-2">
-                <button onclick="selectOption(this)" class="bg-[#e9bc64] text-white rounded-lg px-4 py-2 hover:bg-[#f5c15a] transition text-left text-sm sm:text-base">When was AW Engineering founded?</button>
-                <button onclick="selectOption(this)" class="bg-[#e9bc64] text-white rounded-lg px-4 py-2 hover:bg-[#f5c15a] transition text-left text-sm sm:text-base">Where is AW Engineering located?</button>
-                <button onclick="selectOption(this)" class="bg-[#e9bc64] text-white rounded-lg px-4 py-2 hover:bg-[#f5c15a] transition text-left text-sm sm:text-base">What services does AW Engineering offer?</button>
-                <button onclick="selectOption(this)" class="bg-[#e9bc64] text-white rounded-lg px-4 py-2 hover:bg-[#f5c15a] transition text-left text-sm sm:text-base">What career opportunities are available?</button>
-            </div>
+            <!-- Option Buttons (filled by the menu script below) -->
+            <div id="optionButtons" class="flex flex-col gap-2 mt-2"></div>
         </div>
 
         <!-- Input -->
-      
+
     </div>
 
     <!-- Floating Button -->
@@ -2398,11 +2393,99 @@ function updateImage(projectIndex) {
     .animate-bounce {
         animation: bounce 1s infinite;
     }
+
+    /* Menu extras (plain CSS so no Tailwind rebuild is needed) */
+    .awd-group { display: flex; align-items: center; justify-content: space-between; font-weight: 600; }
+    .awd-group::after { content: "›"; font-size: 1.35rem; line-height: 1; margin-left: .5rem; }
+    .awd-back {
+        text-align: left; padding: .5rem 1rem; border-radius: .5rem; font-size: .875rem;
+        background: #fff; color: #4b5563; border: 1px dashed #d1d5db; cursor: pointer;
+    }
+    .awd-back:hover { background: #f3f4f6; }
+    .awd-menu-title { font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #9ca3af; }
 </style>
+
+<!-- Option menu: must run BEFORE chatbot.js so the buttons exist when it loads -->
+<script>
+(function () {
+    // Text on a question button = the question sent to the controller,
+    // so every label must contain one of the controller's keywords.
+    // "items" = opens a sub-menu.
+    var MENU = {
+        main: { title: '', items: [
+            { label: 'About the company',    go: 'about' },
+            { label: 'Our services',         go: 'services' },
+            { label: 'What are your latest projects?' },
+            { label: 'What career opportunities are available?' },
+            { label: 'What is the latest news?' },
+            { label: 'Contact and location', go: 'contact' }
+        ]},
+        about: { title: 'About the company', items: [
+            { label: 'When was AW Engineering founded?' },
+            { label: 'Tell me about AW Engineering' },
+            { label: 'Who is the founder of AW Engineering?' },
+            { label: 'What is your vision and mission?' },
+            { label: 'Tell me about your team' },
+            { label: 'What certifications do you have?' },
+            { label: 'Who are your clients and partners?' }
+        ]},
+        services: { title: 'Our services', items: [
+            { label: 'What services does AW Engineering offer?' },
+            { label: 'What structural services do you offer?' },
+            { label: 'What architectural services do you offer?' },
+            { label: 'What electrical services do you offer?' },
+            { label: 'What mechanical services do you offer?' },
+            { label: 'What BIM services do you offer?' }
+        ]},
+        contact: { title: 'Contact and location', items: [
+            { label: 'Where is AW Engineering located?' },
+            { label: 'How can I contact AW Engineering?' },
+            { label: 'How can I get a quote?' }
+        ]}
+    };
+
+    // Same classes as your original buttons
+    var BTN = 'bg-[#e9bc64] text-white rounded-lg px-4 py-2 hover:bg-[#f5c15a] transition text-left text-sm sm:text-base';
+
+    function esc(s) {
+        return String(s).replace(/[&<>"']/g, function (c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+    }
+
+    // Global on purpose: buttons use inline onclick, like your existing ones
+    window.awdShowMenu = function (key) {
+        var menu = MENU[key] || MENU.main;
+        var box  = document.getElementById('optionButtons');
+        if (!box) { return; }
+
+        var html = '';
+        if (key !== 'main') {
+            html += '<div class="awd-menu-title">' + esc(menu.title) + '</div>';
+        }
+        menu.items.forEach(function (item) {
+            if (item.go) {
+                html += '<button type="button" onclick="awdShowMenu(\'' + item.go + '\')" class="' + BTN + ' awd-group">' + esc(item.label) + '</button>';
+            } else {
+                html += '<button type="button" onclick="selectOption(this)" class="' + BTN + '">' + esc(item.label) + '</button>';
+            }
+        });
+        if (key !== 'main') {
+            html += '<button type="button" onclick="awdShowMenu(\'main\')" class="awd-back">← Back to all topics</button>';
+        }
+        box.innerHTML = html;
+
+        // keep the buttons in view
+        var body = document.getElementById('chatBody');
+        if (body) { body.scrollTop = body.scrollHeight; }
+    };
+
+    window.awdShowMenu('main');
+})();
+</script>
 
 <!-- Load chatbot.js WITHOUT Vite for now to test -->
 <script src="{{ asset('js/chatbot.js') }}"></script>
-
 <!-- footer section -->
 
 
